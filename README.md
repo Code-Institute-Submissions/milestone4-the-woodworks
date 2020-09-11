@@ -24,3 +24,18 @@ The following features need to be present at a minimum:
 - A checkout page with fields for an adress to send the product(s) to.
 - A working payment system using Stripe and it's testing facilities.
 
+### User stories
+
+As a user that is not logged in:
+- I want to view products on offer
+- I want to look at reviews
+- I want to register for a new account
+- I want login if I already have an account
+
+As a user that is logged in:
+- I want to add a review to a product
+- I want to add a product to my shopping cart
+- I want to see the contents of my shopping cart
+- I want to checkout my purchases and pay for them
+- I want to vote for the next product to be developed.
+
