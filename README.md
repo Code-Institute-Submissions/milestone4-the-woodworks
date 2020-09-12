@@ -39,3 +39,12 @@ As a user that is logged in:
 - I want to checkout my purchases and pay for them
 - I want to vote for the next product to be developed.
 
+### Model design
+
+The products will be several types of furniture, in the database design the model will have the following fields:
+
+- Name (string)
+- Description (string)
+- Price (integer)
+- Construction time (integer representing weeks)
+- Image (file)
