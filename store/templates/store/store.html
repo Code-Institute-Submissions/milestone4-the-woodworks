@@ -1,5 +1,38 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
-    <h1>This is the store page</h1>
+    {% for product in products %}
+        <div class="row">
+            <div class="product-container col-10 offset-1">
+                <div class="card">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <img src="{% static 'media/table.jpg' %}" alt="{{ product.name }}" class="img-fluid">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-block px-2">
+                                <h4 class="card-title">{{product.name}}</h4>
+                                <p class="card-text">{{product.description}}</p>
+                                <a href="#" class="btn btn-primary">Reviews</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer w-100">
+                        <div class="row">
+                            <div class="col-6">
+                                Price: € {{product.price}}
+                            </div>
+                            <div class="col-6">                       
+                                 <span class="glyphicon glyphicon-time" aria-hidden="true"></span>
+                                 {{product.construction_time}} Weeks
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <hr>
+                </div>
+            </div>
+        </div>
+    {% endfor%}
 {% endblock %}

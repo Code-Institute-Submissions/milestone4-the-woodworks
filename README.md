@@ -2,6 +2,7 @@
 
 # Milestone 4 - The Woodworks
 
+LET OP: -> naam heroku moet worden ms4-the-woodworks (zelfde als AWS)
 
 The milestone 4 project will be a website to showcase content I learned to develop in the last part of the Code Institute's Full stack developer bootcamp. It will be a Django based full stack website. Since I am on an extremely tight schedule I will build a minimal viable product first and expand on that if time permits. 
 
