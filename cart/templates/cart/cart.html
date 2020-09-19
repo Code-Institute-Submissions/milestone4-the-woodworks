@@ -9,11 +9,12 @@
                 <hr>
             </div>
         </div>
-
         <div class="row">
             <div class="col">
                 {% if cart_items %}
-                    <div class="table-responsive rounded"></div>
+                    <div class="table-responsive rounded">
+                        {{ cart_items }}
+                    </div>
                 {% else %}
                     <p class="lead mb-5">Your cart is empty.</p>
                     <a href="{% url 'index' %}" class="btn btn-outline-dark">
