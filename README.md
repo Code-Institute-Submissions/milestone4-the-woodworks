@@ -49,3 +49,5 @@ The products will be several types of furniture, in the database design the mode
 - Price (integer)
 - Construction time (integer representing weeks)
 - Image (file)
+
+The database model:
