@@ -65,4 +65,16 @@ The poll model will contain a product type and votes cast per type. Time permitt
 
 The database model can be viewed [here](https://github.com/codewouter/milestone4-the-woodworks/blob/master/mockups/ms4-db-model.pdf):
 
+### Color scheme
+
+Using https://coolors.co/ I picked a scheme that had a lot of green in it and some nice contrast giving it a bit of a 'nature' feel.
+
+![Colorscheme image](https://ms4-the-woodworks.s3.eu-west-2.amazonaws.com/media/images/Colorpalette500x.png)
+
+Colors:
+- 606C38
+- 283618
+- FEFAE0
+- DDA15E
+- BC6C25
 

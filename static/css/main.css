@@ -1,5 +1,31 @@
+/* ---------- colors ---------- */
+.ms4-white {
+    color: #FEFAE0; 
+}
+
+
 .main-body {
     background-image: url("https://ms4-the-woodworks.s3.eu-west-2.amazonaws.com/media/images/background-texture-1.jpg");
     background-repeat: repeat-y;
     background-size: cover;
 }
+
+
+/* navbar styling, overriding bootstrap */
+.nav-main-style {
+    background-image: linear-gradient(to right, #283618, #606C38);
+    color: #FEFAE0;
+}
+
+.nav-main-style > a {
+    color: #FEFAE0;
+}
+
+.navbar-nav .nav-link {
+    /* font-size: 1.2rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    margin-right: 1vw; */
+    color:#FEFAE0; /*same color as logo*/
+}
+
