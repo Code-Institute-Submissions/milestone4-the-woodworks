@@ -33,7 +33,7 @@
   </head>
   <body class="main-body">
     <nav class="navbar navbar-light navbar-expand-md nav-main-style">
-        <a href="index.html" class="navbar-brand">
+        <a href="{% url 'index' %}" class="navbar-brand">
             <!-- <img src="" alt=""> -->
             <h3 class="ms4-white">The Woodworks</h3>
         </a>
@@ -42,11 +42,11 @@
         </button>
         <div class="collapse navbar-collapse" id="mainNavbar">
             <ul class="navbar-nav ml-auto ">
-                <li><a href="#" class="nav-item nav-link">Store</a></li>
+                <li><a href="{% url 'index' %}" class="nav-item nav-link">Store</a></li>
                 <li><a href="#" class="nav-item nav-link">Register</a></li>
                 <li><a href="#" class="nav-item nav-link">Login</a></li>
                 <li><a href="#" class="nav-item nav-link">Vote</a></li>
-                <li><a href="#" class="nav-item nav-link">Cart</a></li>
+                <li><a href="{% url 'view_cart' %}" class="nav-item nav-link">Cart</a></li>
             </ul>
         </div>
     </nav>
