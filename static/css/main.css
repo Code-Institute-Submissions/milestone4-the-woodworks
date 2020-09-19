@@ -1,0 +1,5 @@
+.main-body {
+    background-image: url("https://ms4-the-woodworks.s3.eu-west-2.amazonaws.com/media/images/background-texture-1.jpg");
+    background-repeat: repeat-y;
+    background-size: cover;
+}
