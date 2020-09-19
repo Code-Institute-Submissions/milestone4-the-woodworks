@@ -42,12 +42,27 @@ As a user that is logged in:
 
 ### Model design
 
-The products will be several types of furniture, in the database design the model will have the following fields:
+#### Product
+The products model will be several types of furniture, in the database design the model will have the following fields:
+- product_id (primary key)
+- name (string)
+- description (string)
+- price (integer)
+- construction time (integer representing weeks)
+- image (file)
 
-- Name (string)
-- Description (string)
-- Price (integer)
-- Construction time (integer representing weeks)
-- Image (file)
+#### Reviews
+The review model will add reviews to products and use product_id as a foreign key.
+- review_id (primary key)
+- product_id (foreign key)
+- review_text (string)
 
-The database model:
+#### Poll
+The poll model will contain a product type and votes cast per type. Time permitting it will be linked to a user account so a user can only vote once.
+- product_type_id
+- product_type (string)
+- votes (integer)
+
+The database model can be viewed [here](https://github.com/codewouter/milestone4-the-woodworks/blob/master/mockups/ms4-db-model.pdf):
+
+
