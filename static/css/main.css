@@ -3,7 +3,7 @@
     color: #FEFAE0; 
 }
 
-
+/* ---------- main body ---------- */
 .main-body {
     background-image: url("https://ms4-the-woodworks.s3.eu-west-2.amazonaws.com/media/images/background-texture-1.jpg");
     background-repeat: repeat-y;
@@ -11,21 +11,29 @@
 }
 
 
-/* navbar styling, overriding bootstrap */
+/* ---------- navbar styling, overriding bootstrap ---------- */
 .nav-main-style {
     background-image: linear-gradient(to right, #283618, #606C38);
     color: #FEFAE0;
 }
 
-.nav-main-style > a {
-    color: #FEFAE0;
-}
-
-.navbar-nav .nav-link {
+.navbar-light .navbar-nav .nav-link {
     /* font-size: 1.2rem;
     font-family: 'Poppins', sans-serif;
     font-weight: bold;
     margin-right: 1vw; */
-    color:#FEFAE0; /*same color as logo*/
+    color:#FEFAE0;
 }
 
+.navbar-light .navbar-toggler {
+    color: #FEFAE0;
+}
+
+/* changing color of the hamburger menu */ 
+.custom-toggler.navbar-toggler { 
+    border-color: #FEFAE0;
+} 
+
+.custom-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(254, 250, 224, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
