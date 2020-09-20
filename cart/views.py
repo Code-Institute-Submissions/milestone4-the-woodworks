@@ -31,7 +31,7 @@ def adjust_cart(request, id):
     print(request.POST)
     quantity = int(request.POST.get('quantity'))
     cart = request.session.get('cart', {})
-    # redirect_url = request.POST.get('redirect_url')
+    redirect_url = request.POST.get('redirect_url')
 
     if quantity > 0:
         cart[id] = quantity
@@ -39,4 +39,4 @@ def adjust_cart(request, id):
         cart.pop(id)
 
     request.session['cart'] = cart
-    return redirect('cart/cart.html')
+    return redirect(redirect_url)
