@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, reverse
 
 
 # Create your views here.
@@ -20,3 +20,23 @@ def add_to_cart(request, item_id):
 
     request.session['cart'] = cart
     return redirect(redirect_url)
+
+
+def adjust_cart(request, id):
+    """
+    Adjust the quantity of the specified product to the specified
+    amount. This function was taken from Rob Simons' MS4.
+    https://github.com/RobSimons1/ms4-ecommerce
+    """
+    print(request.POST)
+    quantity = int(request.POST.get('quantity'))
+    cart = request.session.get('cart', {})
+    # redirect_url = request.POST.get('redirect_url')
+
+    if quantity > 0:
+        cart[id] = quantity
+    else:
+        cart.pop(id)
+
+    request.session['cart'] = cart
+    return redirect('cart/cart.html')
