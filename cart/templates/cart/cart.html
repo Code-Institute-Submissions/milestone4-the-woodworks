@@ -5,14 +5,13 @@
         <div class="row">
             <div class="col">
                 {% if cart_items %}
-                    <h1> fubar </h1>
                     {% for item in cart_items %}
                         <div class="row mt-5">
                             <div class="product-container col-10 offset-1 col-md-8 offset-md-2">
                                 <div class="card">
                                     <div class="row">
                                         <div class="col-md-4">
-                                            <img src="{{ MEDIA_URL }}{{ cart.product.image }}" alt="{{ cart.product.name }}" class="img-fluid">
+                                            <img src="{{ MEDIA_URL }}{{ item.product.image }}" alt="{{ item.product.name }}" class="img-fluid">
                                         </div>
                                         <div class="col-md-8">
                                             <div class="card-block px-2">
@@ -33,13 +32,13 @@
                                             </div>
                                             <!-- *********** start chris stuff -->
                                             <div class="col-12 col-md-6">
-                                                <form class="form" action="{% url 'adjust_cart' item.id %}" method="POST">
+                                                <form class="form" action="{% url 'adjust_cart' item.item_id %}" method="POST">
                                                     {% csrf_token %}
                                                     <div class="form-row">
                                                         <div class="col-6 mt-2">
                                                             <div class="form-group w-50">
                                                                 <div class="input-group">
-                                                                    <input class="form-control qty_input" type="number" name="quantity" value="1" min="1" max="5" data-item_id="{{ item.product.id }}" id="id_qty_{{ item.product.id }}">
+                                                                    <input class="form-control qty_input" type="number" name="quantity" value="{{item.quantity}}" min="1" max="5" data-item_id="{{ item.product.id }}" id="id_qty_{{ item.product.id }}">
                                                                 </div>
                                                             </div>
                                                         </div>

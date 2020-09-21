@@ -30,10 +30,10 @@ def adjust_cart(request, item_id):
     redirect_url = request.POST.get('redirect_url')
     cart = request.session.get('cart', {})
 
-    if item_id in list(cart.keys()):
-        cart[item_id] += quantity
-    else:
+    if quantity > 0:
         cart[item_id] = quantity
+    else:
+        cart.pop(item_id)
 
     request.session['cart'] = cart
     return redirect(redirect_url)
