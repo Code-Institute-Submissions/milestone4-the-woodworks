@@ -3,6 +3,10 @@ from .models import Order
 
 
 class OrderForm(forms.ModelForm):
+    """
+    Build the checkout form based on CI video Course:
+    Project - Boutique Ado  The Checkout App  Views & Templates Part 1
+    """
 
     class Meta:
         model = Order

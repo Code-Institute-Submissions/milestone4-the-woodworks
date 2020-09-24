@@ -1,7 +1,12 @@
 from django.db import models
 from store.models import Product
 
-# Create your models here.
+"""
+Build the model based on CI video Course:
+Project - Boutique Ado  The Checkout App  Views & Templates Part 1
+and
+Rob Simon's MS4 project.
+"""
 
 
 class Order(models.Model):
