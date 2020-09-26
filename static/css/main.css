@@ -48,3 +48,8 @@
     color: #FEFAE0;
     background-color: #283618;
 }
+
+/* ---------- general ---------- */
+hr {
+    border-top-color: black;
+}

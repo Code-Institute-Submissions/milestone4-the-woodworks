@@ -9,19 +9,33 @@
             <div class="col-12 border border-dark">
                 {% for item in cart_items %}
                     <div class="row">
-                        <div class="col-3">
+                        <div class="col-2 mt-1">
+                            <img class="w-100" src="{{ MEDIA_URL }}{{ item.product.image }}" alt="{{ product.name }}">   
+                        </div>                 
+                        <div class="col-12 col-md-3">
                             <h4>{{item.product.name}}</h4>
                         </div>
-                        <div class="col-3">
+                        <div class="col-12 col-md-3">
                             <h4>Price: € {{item.product.price}}</h4>
                         </div>
-                        <div class="col-3">
+                        <div class="col-12 col-md-3">
                             <h4>Quantity: {{item.quantity}}</h4>
                         </div>
                     </div>
                 {% endfor %}
+                <div class="row">
+                    <div class="col-12 d-block">
+                        <hr>
+                    </div>
+                    <div class="col-12 col-md-3">
+                        <h4>Total</h4>
+                    </div>
+                    <div class="col-3">
+                        <h4>Price: € {{total}}</h4>
+                    </div>
+                </div>
             </div>
-            <form>
+            <form action="{% url 'checkout' %}" method="POST" id="payment-form">
                 <legend class="mt-4">Please fill out this form</legend>
                 {% csrf_token %}
                 {{ order_form|as_bootstrap }}
