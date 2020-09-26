@@ -39,12 +39,23 @@
                 <legend class="mt-4">Please fill out this form</legend>
                 {% csrf_token %}
                 {{ order_form|as_bootstrap }}
+
+                <!-- A Stripe card element will go here -->
+                <legend class="mt-4">Payment details</legend>
+                <div class="mb-3" id="card-element"></div>
+
                 <div class="form-actions">
-                    <a href="#back" class="btn">Go back</a>
-                    <button type="submit" class="btn btn-primary">Save changes</button>
+                    <button type="submit" class="btn btn-primary mb-5">Pay!</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    {{ stripe_public_key|json_script:"id_stripe_public_key" }}
+    {{ client_secret|json_script:"id_client_secret" }}
+    <script src="{% static 'js/stripe_elements.js' %}"></script>
 {% endblock %}
