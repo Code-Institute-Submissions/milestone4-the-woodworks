@@ -3,13 +3,34 @@
 {% load bootstrap_tags %}
 {% block content %}
 <h1> Checkout page </h1>
-<form>
-    <legend>My Form</legend>
-    {% csrf_token %}
-    {{ order_form|as_bootstrap }}
-    <div class="form-actions">
-        <a href="#back" class="btn">Go back</a>
-        <button type="submit" class="btn btn-primary">Save changes</button>
+<div class = "container-fluid">
+    <div class = "row">
+        <div class = "col-10 offset-1 col-md-8 offset-md-2 mt-3">
+            <div class="col-12 border border-dark">
+                {% for item in cart_items %}
+                    <div class="row">
+                        <div class="col-3">
+                            <h4>{{item.product.name}}</h4>
+                        </div>
+                        <div class="col-3">
+                            <h4>Price: € {{item.product.price}}</h4>
+                        </div>
+                        <div class="col-3">
+                            <h4>Quantity: {{item.quantity}}</h4>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <form>
+                <legend class="mt-4">Please fill out this form</legend>
+                {% csrf_token %}
+                {{ order_form|as_bootstrap }}
+                <div class="form-actions">
+                    <a href="#back" class="btn">Go back</a>
+                    <button type="submit" class="btn btn-primary">Save changes</button>
+                </div>
+            </form>
+        </div>
     </div>
-</form>
+</div>
 {% endblock %}
