@@ -78,3 +78,7 @@ Colors:
 - DDA15E
 - BC6C25
 
+On stripe:
+
+Got stripe running, payments are created and accepted, webhooks are being handled. Creating the whole customer data passing and so on, simply takes too much time and will be left out. Test webhooks send from Stripe are being handled and returned with a proper response.
+
