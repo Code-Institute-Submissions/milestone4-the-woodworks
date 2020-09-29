@@ -1,3 +1,9 @@
 from django.db import models
 
-# Create your models here.
+
+class Poll(models.Model):
+    product_type = models.CharField(max_length=254, default='')
+    votes = models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.product_type
