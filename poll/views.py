@@ -8,7 +8,7 @@ def view_poll(request):
     poll_product_list = Poll.objects.all()
     template = 'poll/poll.html'
     context = {
-        poll_product_list: poll_product_list
+        'poll_product_list': poll_product_list
     }
 
     return render(request, template, context)

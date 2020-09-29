@@ -1,5 +1,8 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<h1> poll test </h1>
-{% endblock %}
+<h1> Polls! </h1>
+{% for poll_product in poll_product_list %}
+<h3>{{ poll_product.product_type }} : {{ poll_product.votes }}</h3> 
+{% endfor %}
+{% endblock %} 
