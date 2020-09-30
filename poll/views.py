@@ -22,4 +22,3 @@ def add_vote(request, poll_product_id):
     product_type.save()
 
     return redirect(redirect_url)
-
