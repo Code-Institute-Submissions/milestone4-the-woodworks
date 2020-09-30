@@ -1,6 +1,5 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Poll
-
 
 # Create your views here.
 def view_poll(request):
@@ -15,10 +14,12 @@ def view_poll(request):
 
 
 def add_vote(request, poll_product_id):
-    product_type = Poll.objects.all()
-    print(product_type)
+    product_type = get_object_or_404(Poll, pk=poll_product_id)
+    print(product_type.product_type)
+    print(product_type.votes)
     redirect_url = request.POST.get('redirect_url')
-    Poll[poll_product_id].votes += 1
+    product_type.votes += 1
+    product_type.save()
 
     return redirect(redirect_url)
 

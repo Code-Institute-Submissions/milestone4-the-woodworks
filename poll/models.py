@@ -1,7 +1,7 @@
 from django.db import models
 
 
-class Poll(models.Model):
+class Poll(models.Model,):
     product_type = models.CharField(max_length=254, default='')
     votes = models.IntegerField(default=0)
 
