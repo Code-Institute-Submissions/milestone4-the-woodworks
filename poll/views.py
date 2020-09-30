@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Poll
 
 
@@ -12,3 +12,13 @@ def view_poll(request):
     }
 
     return render(request, template, context)
+
+
+def add_vote(request, poll_product_id):
+    product_type = Poll.objects.all()
+    print(product_type)
+    redirect_url = request.POST.get('redirect_url')
+    Poll[poll_product_id].votes += 1
+
+    return redirect(redirect_url)
+
