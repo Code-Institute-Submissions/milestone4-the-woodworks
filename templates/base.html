@@ -47,7 +47,7 @@
                 <li><a href="{% url 'index' %}" class="nav-item nav-link">Store</a></li>
                 <li><a href="#" class="nav-item nav-link">Register</a></li>
                 <li><a href="#" class="nav-item nav-link">Login</a></li>
-                <li><a href="#" class="nav-item nav-link">Vote</a></li>
+                <li><a href="{% url 'view_poll' %}" class="nav-item nav-link">Vote</a></li>
                 <li>
                     <a href="{% url 'view_cart' %}" class="nav-item nav-link">Cart
                         {% if product_count >= 0 %}

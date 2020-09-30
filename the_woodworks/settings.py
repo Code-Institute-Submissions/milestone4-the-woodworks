@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'cart',
     'checkout',
     'django_forms_bootstrap',
+    'poll',
 
     # other
     'storages',
