@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Poll
 
+
 # Create your views here.
 def view_poll(request):
 
