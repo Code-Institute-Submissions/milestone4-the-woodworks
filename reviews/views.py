@@ -3,12 +3,12 @@ from .models import Review
 
 
 # Create your views here.
-def view_poll(request):
+def view_reviews(request, product_id):
 
-    poll_product_list = Poll.objects.all()
-    template = 'poll/poll.html'
+    review_list = Review.objects.filter(product_id)
+    template = 'reviews/reviews.html'
     context = {
-        'poll_product_list': poll_product_list
+        'review_list': review_list
     }
 
     return render(request, template, context)
