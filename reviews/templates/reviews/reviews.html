@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section class="container-fluid">
+    <div class="col-8 offset-2">
+        <h1> Reviews</h1>
+        <h2> {{ product }} </h2>
+        {% if review_list %}
+            {% for review in review_list %}
+                <h3 class="mt-5">{{ review.reviewer }}</h3>
+                <p>{{ review.review_text }}</p>
+                <h5>{{ review.date }}</h5>
+            {% endfor %}
+        {% else %}
+            <h3 class="mt-5">There are no reviews for this product yet</h3>
+        {% endif %}
+    </div>
+</section>
+{% endblock %} 

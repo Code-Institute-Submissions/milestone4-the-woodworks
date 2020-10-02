@@ -1,14 +1,23 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, get_object_or_404
 from .models import Review
+from store.models import Product
 
 
 # Create your views here.
 def view_reviews(request, product_id):
+    """"
+    Gets the id of the specific product and searches for all reviews
+    connect to it and puts them in review_list which is then returned
+    to the template (reviews.html)
+    """
 
-    review_list = Review.objects.filter(product_id)
+    product = get_object_or_404(Product, pk=product_id)
+    review_list = Review.objects.all().filter(product=product)
+    print(review_list)
     template = 'reviews/reviews.html'
     context = {
-        'review_list': review_list
+        'review_list': review_list,
+        'product': product
     }
 
     return render(request, template, context)
