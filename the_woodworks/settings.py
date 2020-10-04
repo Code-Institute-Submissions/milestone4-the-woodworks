@@ -166,7 +166,6 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, "static"),
 )
 
-# # if 'USE_AWS' in os.envrion:
 
 # # Bucket config
 AWS_STORAGE_BUCKET_NAME = 'ms4-the-woodworks'
@@ -175,15 +174,17 @@ AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
 AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com'
 
-# # Static and media files
-# STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+# Static and media files
 STATICFILES_LOCATION = 'static'
 DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
 MEDIAFILES_LOCATION = 'media'
 
-# # Override static and media URLs in production
-# STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
+# Override static and media URLs in production
 MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
+
+if 'USE_AWS' in os.environ:
+    STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+    STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
 
 # Stripe
 STRIPE_CURRENCY = 'usd'
