@@ -1,4 +1,6 @@
 
+/* All stripe js code taken from CI's boutique's project. */
+
 /*
     Core logic/payment flow for this comes from here:
     https://stripe.com/docs/payments/accept-a-payment
@@ -46,6 +48,7 @@ card.addEventListener('change', function (event) {
 });
 
 // Handle form submit
+// taken from CI's Boutique Ado's mostly.
 var form = document.getElementById('payment-form');
 
 form.addEventListener('submit', function(ev) {

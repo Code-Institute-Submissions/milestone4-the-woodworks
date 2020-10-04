@@ -31,9 +31,11 @@
         <div class="col-8 offset-2">
             {% if review_list %}
                 {% for review in review_list %}
-                    <h4 class="mt-3">{{ review.reviewer }}</h3>
-                    <p>{{ review.review_text }}</p>
-                    <h5>{{ review.date }}</h5>
+                    <div class="col-12 border border-dark mb-2">
+                        <h4 class="mt-2 ">{{ review.reviewer }}</h4>
+                        <p>{{ review.review_text }}</p>
+                        <h5 class="mb-2">{{ review.date }}</h5>
+                    </div>
                 {% endfor %}
             {% else %}
                 <h3 class="mt-5">There are no reviews for this product yet</h3>
