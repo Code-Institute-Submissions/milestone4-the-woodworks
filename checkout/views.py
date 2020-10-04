@@ -48,7 +48,7 @@ def checkout(request):
         stripe_secret_key = settings.STRIPE_SECRET_KEY
 
         cart = request.session.get('cart', {})
-        # Catch users filling out /checkout
+        # Catch users filling out /checkout in adressbar
         if not cart:
             return redirect(reverse('store'))
 

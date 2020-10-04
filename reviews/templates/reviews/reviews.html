@@ -2,18 +2,43 @@
 {% load static %}
 {% block content %}
 <section class="container-fluid">
-    <div class="col-8 offset-2">
-        <h1> Reviews</h1>
-        <h2> {{ product }} </h2>
-        {% if review_list %}
-            {% for review in review_list %}
-                <h3 class="mt-5">{{ review.reviewer }}</h3>
-                <p>{{ review.review_text }}</p>
-                <h5>{{ review.date }}</h5>
-            {% endfor %}
-        {% else %}
-            <h3 class="mt-5">There are no reviews for this product yet</h3>
-        {% endif %}
+    <h1> Reviews for {{ product }} </h1>
+    <div class="row">
+        <div class="col-8 offset-2">
+            <h3 class="mt-5"> Add a review </h3>
+            <form method="POST" action="{% url 'add_review' product.id %}">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-12">
+                        <label class="my-2" for="reviewer">Name</label>
+                    </div>
+                    <div class="col-8">
+                        <input id="reviewer" name="reviewer" type="text" class="W-50" placeholder="Your name" required>
+                    </div>
+                    <div class="col-12">
+                        <label class="my-2" for="review_text">Review text</label>
+                    </div>
+                    <div class="col-8">
+                        <textarea id="review_text" name="review_text" type="text-a" class="w-75" placeholder="Please enter your review here" required></textarea>
+                    </div>
+                </div>
+                <input type="submit" class="btn-sm btn-dark" value="Submit review">
+                <input type="hidden" name="redirect_url" value="{{ request.path }}">
+            </form> 
+            <hr>
+        </div>
+        <!-- list of reviews for speicified product -->
+        <div class="col-8 offset-2">
+            {% if review_list %}
+                {% for review in review_list %}
+                    <h4 class="mt-3">{{ review.reviewer }}</h3>
+                    <p>{{ review.review_text }}</p>
+                    <h5>{{ review.date }}</h5>
+                {% endfor %}
+            {% else %}
+                <h3 class="mt-5">There are no reviews for this product yet</h3>
+            {% endif %}
+        </div>
     </div>
 </section>
 {% endblock %} 
