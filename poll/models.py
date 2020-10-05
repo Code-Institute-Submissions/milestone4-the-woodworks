@@ -7,3 +7,6 @@ class Poll(models.Model,):
 
     def __str__(self):
         return self.product_type
+
+# class Has_voted(models.Model,):
+#     email_adress
