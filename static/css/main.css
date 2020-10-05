@@ -35,14 +35,18 @@
 }
 
 /* ---------- buttons ---------- */
-.btn-success {
-    color: #DDA15E;
+.btn-primary {
+    color: #FEFAE0;
     background-color: #606C38;
+    border-color: #283618;
 }
 
-.btn-success:hover {
+.btn-primary:hover, .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:focus {
     color: #FEFAE0;
     background-color: #283618;
+    border-color: #283618;
+    box-shadow: none;
+    outline: 0;
 }
 
 /* ---------- general ---------- */
