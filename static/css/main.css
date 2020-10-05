@@ -11,8 +11,7 @@
 }
 
 
-/* ---------- navbar styling, overriding bootstrap ---------- */
-  
+/* ---------- navbar styling, overriding bootstrap ---------- */ 
 .navbar {
   overflow: hidden;
   background-color: #333;
