@@ -9,9 +9,8 @@ class Poll(models.Model,):
         return self.product_type
 
 
-class Voters(models.Model,):
+class Voted(models.Model,):
     user_email = models.CharField(max_length=128, default='')
-    has_voted = models.BooleanField(default=False)
 
     def __str__(self):
         return self.user_email
