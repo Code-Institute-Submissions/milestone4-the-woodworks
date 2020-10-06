@@ -8,11 +8,18 @@ def view_poll(request):
     simple function to pass the products with their respective
     nr of votes.
     """
+    all_emails = Voted.objects.values_list('user_email', flat=True)
+    current_user_email = request.user.email
+    if current_user_email in all_emails:
+        voted = True
+    else:
+        voted = False
 
     poll_product_list = Poll.objects.all()
     template = 'poll/poll.html'
     context = {
-        'poll_product_list': poll_product_list
+        'poll_product_list': poll_product_list,
+        'voted': voted,
     }
 
     return render(request, template, context)

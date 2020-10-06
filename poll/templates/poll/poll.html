@@ -5,11 +5,8 @@
 <div class="mt-5">-</div>
     <div class="col-8 offset-2">
         <h1> What would you like to be developed next by The Woodworks? </h1>
-        <h5>{{ vote_status }} </h5>
-        {% if vote_status == True %}
-            <h3> Voting succesful!! </h3>
-        {% elif vote_status == False %}
-            <h3> You have already voted </h3>
+        {% if voted == True %}
+            <h3 class="mt-2"> You have already voted </h3>
         {% endif %}
         {% for poll_product in poll_product_list %}
             <form action="{% url 'add_vote' poll_product.id %}" method="POST">
