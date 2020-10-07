@@ -1,25 +1,32 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<section class="container-fluid">
-<div class="mt-5">-</div>
-    <div class="col-8 offset-2">
-        <h1> What would you like to be developed next by The Woodworks? </h1>
-        {% if voted == True %}
-            <h3 class="mt-2"> You have already voted </h3>
-        {% endif %}
-        {% for poll_product in poll_product_list %}
-            <form action="{% url 'add_vote' poll_product.id %}" method="POST">
-                {% csrf_token %}
-                <div class="row">
-                    <div class="col-12 mt-5">
-                        <h3>{{ poll_product.product_type }} : {{ poll_product.votes }}</h3> 
-                        <input type="submit" class="btn-sm btn-dark" value="Vote">
+<section class="container-fluid section-container">
+    <div class="row">
+        <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+            <h2> What would you like to be developed next by The Woodworks? </h2>
+            {% if user.is_authenticated %}
+                {% if voted == True %}
+                    <h3 class="mt-2"> You have already voted </h3>
+                {% endif %}
+            {% else %}
+                    <h3 class="mt-2"> Please login or register to vote </h3>
+            {% endif %}
+            {% for poll_product in poll_product_list %}
+                <form action="{% url 'add_vote' poll_product.id %}" method="POST">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-12 mt-5">
+                            <h4>{{ poll_product.product_type }} : {{ poll_product.votes }}</h4>
+                            {% if user.is_authenticated %}
+                                <input type="submit" class="btn-sm btn-dark" value="Vote">
+                            {% endif%}
+                        </div>
                     </div>
-                </div>
-                <input type="hidden" name="redirect_url" value="{{ request.path }}">
-            </form>
-        {% endfor %}
+                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                </form>
+            {% endfor %}
+        </div>
     </div>
 </section>
 {% endblock %} 

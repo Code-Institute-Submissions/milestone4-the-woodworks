@@ -1,13 +1,13 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-    <div class="container mb-2">
+    <section class="container-fluid section-container">
         <div class="row">
             <div class="col">
                 {% if cart_items %}
                     {% for item in cart_items %}
-                        <div class="row mt-5">
-                            <div class="product-container col-10 offset-1 col-md-8 offset-md-2">
+                        <div class="row">
+                            <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
                                 <!-- begin card                             -->
                                 <div class="card">
                                     <div class="row">
@@ -65,12 +65,14 @@
                         </div>
                     </div>
                 {% else %}
-                    <p class="lead mb-5">Your cart is empty.</p>
-                    <a href="{% url 'index' %}" class="btn btn-outline-dark">
-                        <span class="text-uppercase">Back to store</span>
-                    </a>
+                    <div class="col-10 offset-1 col-md-8 offset-md-2">
+                        <p class="lead my-5">Your cart is empty.</p>
+                        <a href="{% url 'index' %}" class="btn btn-outline-dark">
+                            <span class="text-uppercase">Back to store</span>
+                        </a>
+                    </div>
                 {% endif %}
             </div>
         </div>
-    </div>
+    </section>
 {% endblock %}

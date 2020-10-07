@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<section class="container-fluid">
-    <h1> Reviews for {{ product }} </h1>
+<section class="container-fluid section-container">
     <div class="row">
-        <div class="col-8 offset-2">
+        <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+            <h1> Reviews for {{ product }} </h1>
             <h3 class="mt-5"> Add a review </h3>
             <form method="POST" action="{% url 'add_review' product.id %}">
                 {% csrf_token %}
@@ -12,14 +12,14 @@
                     <div class="col-12">
                         <label class="my-2" for="reviewer">Name</label>
                     </div>
-                    <div class="col-8">
-                        <input id="reviewer" name="reviewer" type="text" class="W-50" placeholder="Your name" required>
+                    <div class="col-12">
+                        <input id="reviewer" name="reviewer" type="text" class="w-75" placeholder="Your name" required>
                     </div>
                     <div class="col-12">
                         <label class="my-2" for="review_text">Review text</label>
                     </div>
-                    <div class="col-8">
-                        <textarea id="review_text" name="review_text" type="text-a" class="w-75" placeholder="Please enter your review here" required></textarea>
+                    <div class="col-12">
+                        <textarea id="review_text" name="review_text" type="text" class="w-100" placeholder="Please enter your review here" required></textarea>
                     </div>
                 </div>
                 <input type="submit" class="btn-sm btn-dark" value="Submit review">

@@ -10,6 +10,10 @@
     background-size: cover;
 }
 
+.section-container {
+    margin-top: 5em;
+}
+
 
 /* ---------- navbar styling, overriding bootstrap ---------- */ 
 .navbar {
@@ -92,3 +96,5 @@ hr {
 .stripe-style-input::placeholder {
     color: #aab7c4;
 }
+
+/* ---------- mediaqueries ---------- */

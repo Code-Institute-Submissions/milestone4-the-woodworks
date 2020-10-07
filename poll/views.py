@@ -8,10 +8,13 @@ def view_poll(request):
     simple function to pass the products with their respective
     nr of votes.
     """
-    all_emails = Voted.objects.values_list('user_email', flat=True)
-    current_user_email = request.user.email
-    if current_user_email in all_emails:
-        voted = True
+    if request.user.is_authenticated:
+        all_emails = Voted.objects.values_list('user_email', flat=True)
+        current_user_email = request.user.email
+        if current_user_email in all_emails:
+            voted = True
+        else:
+            voted = False
     else:
         voted = False
 
