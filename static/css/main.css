@@ -113,8 +113,10 @@ Bootstrap 4 breakpoints
 */
 
 /* Extra small devices (portrait phones, less than 576px) */
-@media (min-width: max-width: 576px) {  
-
+@media (max-width: 576px) {  
+    .h4, h4 {
+        font-size: 1rem;
+    }
 }
 
 /* Small devices (landscape phones, 576px and up) */

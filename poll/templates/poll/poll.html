@@ -4,21 +4,27 @@
 <section class="container-fluid section-container">
     <div class="row">
         <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
-            <h2> What would you like to be developed next by The Woodworks? </h2>
+            <h3> Please give your input </h3>
+            <h4> What would you like to be developed next by The Woodworks? </h4>
             {% if user.is_authenticated %}
-                {% if voted == True %}
-                    <h3 class="mt-2"> You have already voted </h3>
+                {% if voted %}
+                    <h4 class="mt-2 font-weight-bold">You have already voted </h4>
                 {% endif %}
             {% else %}
                     <h3 class="mt-2"> Please login or register to vote </h3>
             {% endif %}
+            <div class="col-12 d-block">
+                <hr>
+            </div>
             {% for poll_product in poll_product_list %}
                 <form action="{% url 'add_vote' poll_product.id %}" method="POST">
                     {% csrf_token %}
-                    <div class="row">
-                        <div class="col-12 mt-5">
+                    <div class="row mt-2">
+                        <div class="col-8 mt-1">
                             <h4>{{ poll_product.product_type }} : {{ poll_product.votes }}</h4>
-                            {% if user.is_authenticated %}
+                        </div>
+                        <div class="col-4">
+                            {% if user.is_authenticated and not voted %}
                                 <input type="submit" class="btn-sm btn-dark" value="Vote">
                             {% endif%}
                         </div>

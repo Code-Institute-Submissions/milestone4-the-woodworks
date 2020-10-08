@@ -9,15 +9,15 @@
     </div>
     {% for product in products %}
         <div class="row mt-4">
-            <div class="product-container col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+            <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
                 <div class="card">
                     <div class="row">
-                        <div class="col-sm-4">
+                        <div class="col-8 offset-2">
                             <img src="{{ MEDIA_URL }}{{ product.image }}" alt="{{ product.name }}" class="img-fluid mt-3 w-100">
                         </div>
                         <div class="col-sm-8">
                             <div class="card-block px-2">
-                                <h4 class="card-title mt-md-3">{{product.name}}</h4>
+                                <h4 class="card-title mt-2 mt-md-3">{{product.name}}</h4>
                                 <p class="card-text">{{product.description}}</p>
                                 <a href="{% url 'view_reviews' product.id %}" class="btn btn-primary mb-2">Reviews</a>
                             </div>

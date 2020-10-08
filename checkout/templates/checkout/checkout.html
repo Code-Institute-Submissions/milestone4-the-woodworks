@@ -2,25 +2,27 @@
 {% load static %}
 {% load bootstrap_tags %}
 {% block content %}
-<h1> Checkout page </h1>
-<div class = "container-fluid section-container">
+<section class = "container-fluid section-container">
     <div class = "row">
         <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+            <h2> Checkout page </h2>
             <!-- condensed cart overview -->
             <div class="col-12 border border-dark">
                 {% for item in cart_items %}
                     <div class="row">
-                        <div class="col-2 mt-3">
+                        <div class="col-5 col-md-2 mt-3">
                             <img class="w-100" src="{{ MEDIA_URL }}{{ item.product.image }}" alt="{{ product.name }}">   
-                        </div>                 
-                        <div class="col-12 col-md-3 mt-5">
-                            <h4>{{item.product.name}}</h4>
                         </div>
-                        <div class="col-12 col-md-3 mt-5">
-                            <h4>Price: € {{item.product.price}}</h4>
-                        </div>
-                        <div class="col-12 col-md-3 mt-5">
-                            <h4>Quantity: {{item.quantity}}</h4>
+                        <div class="col-7">
+                            <div class="col-12 offset-md-2 col-md-3 mt-4">
+                                <h4>{{item.product.name}}</h4>
+                            </div>
+                            <div class="col-12 col-md-3 mt-md-5">
+                                <h4>Price: € {{item.product.price}}</h4>
+                            </div>
+                            <div class="col-12 col-md-3 mt-md-5">
+                                <h4>Quantity: {{item.quantity}}</h4>
+                            </div>
                         </div>
                     </div>
                 {% endfor %}
@@ -28,10 +30,10 @@
                     <div class="col-12 d-block">
                         <hr>
                     </div>
-                    <div class="col-3 offset-2">
+                    <div class="col-3 offset-2 col-md-3 offset-md-2">
                         <h4>Total</h4>
                     </div>
-                    <div class="col-3">
+                    <div class="col-6 col-md-3 offset-md-2">
                         <h4>Price: € {{total}}</h4>
                     </div>
                 </div>
@@ -57,7 +59,7 @@
             </form>
         </div>
     </div>
-</div>
+</section>
 {% endblock %}
 
 {% block postloadjs %}
