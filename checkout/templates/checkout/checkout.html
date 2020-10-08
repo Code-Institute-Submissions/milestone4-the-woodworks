@@ -6,6 +6,7 @@
 <div class = "container-fluid section-container">
     <div class = "row">
         <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+            <!-- condensed cart overview -->
             <div class="col-12 border border-dark">
                 {% for item in cart_items %}
                     <div class="row">
@@ -27,7 +28,7 @@
                     <div class="col-12 d-block">
                         <hr>
                     </div>
-                    <div class="col-12 col-md-3">
+                    <div class="col-3 offset-2">
                         <h4>Total</h4>
                     </div>
                     <div class="col-3">
@@ -35,6 +36,7 @@
                     </div>
                 </div>
             </div>
+            <!-- checkout input form -->
             <form action="{% url 'checkout' %}" method="POST" id="payment-form">
                 <legend class="mt-4">Please fill out this form</legend>
                 {% csrf_token %}

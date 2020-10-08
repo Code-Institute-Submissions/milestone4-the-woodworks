@@ -12,6 +12,7 @@
 
 .section-container {
     margin-top: 5em;
+    min-height: 80vh;
 }
 
 
@@ -106,3 +107,38 @@ hr {
 }
 
 /* ---------- mediaqueries ---------- */
+/*
+::::::::::::::::::::::::::::::::::::::::::::::::::::
+Bootstrap 4 breakpoints
+*/
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (min-width: max-width: 576px) {  
+
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) {  
+
+}
+
+/* Medium devices (tablets, 768px and up) The navbar toggle appears at this breakpoint */
+@media (min-width: 768px) {  
+    .h4, h4 {
+        font-size: 1rem;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {  
+    .h4, h4 {
+        font-size: 1.5rem;
+    }
+}
+
+
