@@ -17,9 +17,10 @@
                         </div>
                         <div class="col-sm-8">
                             <div class="card-block px-2">
-                                <h4 class="card-title mt-2 mt-md-3">{{product.name}}</h4>
-                                <p class="card-text">{{product.description}}</p>
+                                <h3 class="card-title mt-2 mt-md-3">{{product.name}}</h3>
+                                <p class="card-text" id="{{product.id}}">{{product.description}}</p>
                                 <a href="{% url 'view_reviews' product.id %}" class="btn btn-primary mb-2">Reviews</a>
+                                <button data-target="#{{product.id}}" class="btn btn-primary mb-2 toggle-info-button" onclick="hide({{product.id}})">Toggle info</button>
                             </div>
                         </div>
                     </div>
@@ -59,4 +60,7 @@
         </div>
     {% endfor%}
 </section>
+{% endblock %}
+{% block postloadjs %}
+    <script src="{% static 'js/main.js' %}"></script>
 {% endblock %}

@@ -5,13 +5,13 @@
     <div class="row">
         <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
             <h3> Please give your input </h3>
-            <h4> What would you like to be developed next by The Woodworks? </h4>
+            <p> What would you like to be developed next by The Woodworks? </p>
             {% if user.is_authenticated %}
                 {% if voted %}
-                    <h4 class="mt-2 font-weight-bold">You have already voted </h4>
+                    <h5 class="mt-2 font-weight-bold">You have already voted </h5>
                 {% endif %}
             {% else %}
-                    <h3 class="mt-2"> Please login or register to vote </h3>
+                    <h5 class="mt-2"> Please login or register to vote </h5>
             {% endif %}
             <div class="col-12 d-block">
                 <hr>
