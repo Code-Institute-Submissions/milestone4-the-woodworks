@@ -3,7 +3,7 @@
 {% block content %}
 <section class="container-fluid section-container">
     <div class="row">
-        <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
+        <div class="col-sm-10 offset-sm-1 col-lg-8 offset-lg-2">
             <h3> Please give your input </h3>
             <p> What would you like to be developed next by The Woodworks? </p>
             {% if user.is_authenticated %}
@@ -19,9 +19,9 @@
             {% for poll_product in poll_product_list %}
                 <form action="{% url 'add_vote' poll_product.id %}" method="POST">
                     {% csrf_token %}
-                    <div class="row mt-2">
-                        <div class="col-8 mt-1">
-                            <h4>{{ poll_product.product_type }} : {{ poll_product.votes }}</h4>
+                    <div class="row mt-1">
+                        <div class="col-8">
+                            <h5>{{ poll_product.product_type }} : {{ poll_product.votes }}</h5>
                         </div>
                         <div class="col-4">
                             {% if user.is_authenticated and not voted %}
