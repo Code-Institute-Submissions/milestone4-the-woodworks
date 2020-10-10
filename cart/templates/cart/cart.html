@@ -27,24 +27,12 @@
                                         </div>
                                     </div>
                                 </div>
-
-                                <!-- <div class="row">
-                                    <div class="col-md-4">
-                                        <img src="{{ MEDIA_URL }}{{ item.product.image }}" alt="{{ item.product.name }}" class="img-fluid">
-                                    </div>
-                                    <div class="col-md-8">
-                                        <div class="card-block px-2">
-                                            <h4 class="card-title">{{item.product.name}}</h4>
-                                        </div>
-                                    </div>
-                                </div> -->
                                 <div class="card-footer w-100">
                                     <div class="row">
-                                        <!-- *********** start chris stuff -->
+                                        <!-- Underlying code partly dervived from CI's Boutique Project-->
                                         <div class="col-12 col-md-6">
                                             <form class="form" action="{% url 'adjust_cart' item.item_id %}" method="POST">
                                                 {% csrf_token %}
-
                                                 <div class="form-row">
                                                     <div class="col-4">
                                                         <h5 class="mt-3"> Quantity </h5>
@@ -71,12 +59,14 @@
                     </div>
                 {% endfor%}
                 <div class="row">
-                    <div class="col-10 offset-1 col-md-8 offset-md-2 border-dark">
-                        <h5 class="mt-3"> Total: € {{total}} </h5><br>
-                        <h5> Total construction time: {{total_time}} weeks </h5><br>
-                        <a href="{% url 'checkout' %}" class="btn btn-primary">
-                            <span class="text-uppercase">Checkout</span>
-                        </a>
+                    <div class="col-10 offset-1 col-md-8 offset-md-2 border border-dark mt-2">
+                        <div class="row">
+                            <div class="mt-3 col-12 font-weight-bold"> Total: € {{total}} </div>
+                            <div class="my-2 col-12 font-weight-bold"> Total construction time: {{total_time}} weeks </div>
+                            <a href="{% url 'checkout' %}" class="btn btn-primary mx-3 mb-3">
+                                <span class="text-uppercase">Checkout</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
             {% else %}
