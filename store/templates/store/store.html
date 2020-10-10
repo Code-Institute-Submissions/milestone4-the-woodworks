@@ -20,7 +20,7 @@
                                 <h4 class="card-title mt-2 mt-sm-3">{{product.name}}</h4>
                                 <p class="card-text" id="{{product.id}}">{{product.description}}</p>
                                 <a href="{% url 'view_reviews' product.id %}" class="btn btn-primary mb-2">Reviews</a>
-                                <button data-target="#{{product.id}}" class="btn btn-primary mb-2 toggle-info-button" onclick="hide({{product.id}})">Toggle info</button>
+                                <button class="btn btn-primary mb-2 toggle-info-button" onclick="hide({{product.id}})">Toggle info</button>
                             </div>
                         </div>
                     </div>

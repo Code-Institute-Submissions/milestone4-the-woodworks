@@ -17,12 +17,17 @@ def view_poll(request):
             voted = False
     else:
         voted = False
+    total_votes = 0
+    for product_type in Poll.objects.all():
+        total_votes += product_type.votes
 
-    poll_product_list = Poll.objects.all()
+    print(total_votes)
+    poll_product_list = Poll.objects.order_by('id')
     template = 'poll/poll.html'
     context = {
         'poll_product_list': poll_product_list,
         'voted': voted,
+        'total_votes': total_votes,
     }
 
     return render(request, template, context)

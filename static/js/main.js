@@ -7,3 +7,9 @@ function hide(obj) {
         el.style.display = "none";
     }
 }
+
+function setProgressBar(productVotes, totalVotes, productID) {
+    progressPercentage = Math.round(productVotes/totalVotes * 100);
+    document.getElementById(productID).style.width = progressPercentage+"%";
+}
+
