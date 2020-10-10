@@ -145,7 +145,13 @@ Bootstrap 4 breakpoints
 }
 
 /* Extra large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) {  
+@media (min-width: 1200px) { 
+    .homepage-quote {
+        font-size: 1.8em;
+    } 
+    .card-text {
+        font-size: 1em;
+    }
 }
 
 
