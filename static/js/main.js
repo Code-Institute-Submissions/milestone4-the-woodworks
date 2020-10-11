@@ -1,7 +1,6 @@
 function toggleElementView(obj) {
     var el = document.getElementById(obj);
     const style = getComputedStyle(el);
-    console.log(style.display);
     if (style.display === "none") {
         el.style.display = "block";
     } else if (style.display === "block") {
