@@ -97,7 +97,9 @@ hr {
 
 /* ---------- cart app ---------- */
 .login-request-text {
-    display: none;
+    font-weight: bold;
+    color: #8C6C25;
+    font-size: 1.05em
 }
 
 /* ---------- stripe ---------- */
