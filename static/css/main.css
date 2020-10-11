@@ -12,7 +12,8 @@
 
 .section-container {
     margin-top: 5em;
-    min-height: 80vh;
+    position: relative;
+    min-height: 88vh;
 }
 
 
@@ -54,6 +55,8 @@
     color: #FEFAE0;
     background-image: url("https://ms4-the-woodworks.s3.eu-west-2.amazonaws.com/media/images/horizontal-bark-texture.jpg");
     text-align: center;
+    position: relative;
+    bottom: 0;
 }
 
 
