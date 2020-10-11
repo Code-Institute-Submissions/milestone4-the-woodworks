@@ -13,15 +13,10 @@ function setProgressBar(productVotes, totalVotes, productID) {
     document.getElementById(productID).style.width = progressPercentage+"%";
 }
 
-function disableButton(button, loginText) {
-    document.getElementById(button).disabled = true;    
-    document.getElementById(loginText).style.display = "block";      
-
+function disableButton() {
+    document.getElementById('checkout-anchor').disabled = true;    
+    document.getElementById('cart-login-request').style.display = "block";      
 }
 
-function enableButton(button, loginText) {
-    document.getElementById(button).disabled = false;
-    document.getElementById(loginText).style.display = "none";      
-}
-
+document.getElementById('checkout-anchor').addEventListener("click", disableButton);
 

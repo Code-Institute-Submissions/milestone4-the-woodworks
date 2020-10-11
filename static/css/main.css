@@ -72,20 +72,6 @@
     outline: 0;
 }
 
-.btn-primary.disabled, .btn-primary:disabled {
-    color: #FEFAE0;
-    background-color: #283618;
-    border-color: #283618;
-    box-shadow: none;
-    outline: 0;
-    opacity: 0.4;
-}
-
-.btn-primary.disabled>a, .btn-primary:disabled>a {
-    color: #FEFAE0;   
-    opacity: 0.4;         
-}
-
 /* ---------- general ---------- */
 hr {
     border-top-color: black;
@@ -99,7 +85,8 @@ hr {
 .login-request-text {
     font-weight: bold;
     color: #8C6C25;
-    font-size: 1.05em
+    font-size: 1.05em;
+    display: none;
 }
 
 /* ---------- stripe ---------- */
