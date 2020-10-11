@@ -1,5 +1,9 @@
 {% extends 'base.html' %}
 {% load static %}
+<!-- js script cannot be postloaded because the function setProgressBar needs this -->
+{% block extra_js %}
+    <script src="{% static 'js/main.js' %}"></script>
+{% endblock%}
 {% block content %}
 <section class="container-fluid section-container">
     <div class="row">
@@ -63,9 +67,21 @@
                         <div class="row">
                             <div class="mt-3 col-12 font-weight-bold"> Total: € {{total}} </div>
                             <div class="my-2 col-12 font-weight-bold"> Total construction time: {{total_time}} weeks </div>
-                            <a href="{% url 'checkout' %}" class="btn btn-primary mx-3 mb-3">
+                            <button onclick="location.href='../checkout/';" id="submit-button" class="btn btn-primary mx-3 mb-3">
                                 <span class="text-uppercase">Checkout</span>
-                            </a>
+                            </button>
+                            <div id="cart-login-request" class="login-request-text"><span>Please login to go to checkout</span></div>
+                            {% if not user.is_authenticated %}
+                                <script>
+                                    disableButton('submit-button');
+                                    toggleElementView('cart-login-request');
+                                </script>
+                            {% else %}
+                                <script>
+                                    enableButton('submit-button');
+                                    toggleElementView('cart-login-request');
+                                </script>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
@@ -81,3 +97,6 @@
     </div>
 </section>
 {% endblock %}
+<!-- {% block postloadjs %}
+    <script src="{% static 'js/main.js' %}"></script>
+{% endblock %} -->

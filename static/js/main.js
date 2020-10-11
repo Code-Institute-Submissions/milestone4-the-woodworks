@@ -1,4 +1,4 @@
-function hide(obj) {
+function toggleElementView(obj) {
     var el = document.getElementById(obj);
     const style = getComputedStyle(el)
     if (style.display === "none") {
@@ -12,4 +12,13 @@ function setProgressBar(productVotes, totalVotes, productID) {
     progressPercentage = Math.round(productVotes/totalVotes * 100);
     document.getElementById(productID).style.width = progressPercentage+"%";
 }
+
+function disableButton(button) {
+    document.getElementById(button).disabled = true;    
+}
+
+function enableButton(button) {
+    document.getElementById(button).disabled = false;    
+}
+
 
