@@ -4,7 +4,9 @@
 <section class="container-fluid section-container">
     <div class="row">
         <div class="col-sm-10 offset-sm-1 col-lg-8 offset-lg-2 col-xl-10 offset-xl-1">
-            <h2> Your cart </h2>
+            <div class="col-xl-5 offset-xl-1">
+                <h2> Your cart </h2>
+            </div>
             {% if cart_items %}
                 <div class="row justify-content-around">
                     {% for item in cart_items %}
@@ -72,7 +74,11 @@
                                         <span id="checkout-anchor" class="text-uppercase">Checkout</span>
                                     </a>
                                 {% endif%}
-                            <div id="cart-login-request" class="login-request-text ml-3 mb-2 mb-sm-0 mt-sm-1"><span>Please login to go to checkout</span></div>
+                            <div id="cart-login-request" class="login-request-text ml-3 mb-2 mb-sm-0 mt-sm-1">
+                                <span>
+                                    Please <a href="{% url 'account_login' %}" class="login-request-link">login</a> to go to checkout
+                                </span>
+                            </div>
                         </div>
                     </div>
                 </div>

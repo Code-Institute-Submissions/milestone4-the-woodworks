@@ -79,6 +79,10 @@
 hr {
     border-top-color: black;
 }
+
+.login-request-link {
+    color: #DDA15E;
+}
 /* ---------- store app ---------- */
 .card-text {
     display: none;

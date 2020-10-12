@@ -15,7 +15,7 @@
                     <h5 class="mt-2 font-weight-bold">You have already voted </h5>
                 {% endif %}
             {% else %}
-                    <h5 class="mt-2"> Please login or register to vote </h5>
+                    <h5 class="mt-2"> Please <a href="{% url 'account_login' %}" class="login-request-link">login</a> to vote </h5>
             {% endif %}
             <div class="col-12 d-block">
                 <hr>
