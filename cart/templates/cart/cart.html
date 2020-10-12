@@ -63,15 +63,15 @@
                         <div class="row">
                             <div class="mt-3 col-12 font-weight-bold"> Total: € {{total}} </div>
                             <div class="my-2 col-12 font-weight-bold"> Total construction time: {{total_time}} weeks </div>
-                             {% if user.is_authenticated %}
-                                <a href="{% url 'checkout' %}" class="btn btn-primary mx-3 mb-2 mb-sm-3">
-                                    <span class="text-uppercase">Checkout</span>
-                                </a>
-                            {% else %}
-                                <a href="#" class="btn btn-primary mx-3 mb-2 mb-sm-3">
-                                    <span id="checkout-anchor" class="text-uppercase">Checkout</span>
-                                </a>
-                            {% endif%}
+                                {% if user.is_authenticated %}
+                                    <a href="{% url 'checkout' %}" class="btn btn-primary mx-3 mb-2 mb-sm-3">
+                                        <span class="text-uppercase">Checkout</span>
+                                    </a>
+                                {% else %}
+                                    <a href="#" class="btn btn-primary mx-3 mb-2 mb-sm-3">
+                                        <span id="checkout-anchor" class="text-uppercase">Checkout</span>
+                                    </a>
+                                {% endif%}
                             <div id="cart-login-request" class="login-request-text ml-3 mb-2 mb-sm-0 mt-sm-1"><span>Please login to go to checkout</span></div>
                         </div>
                     </div>

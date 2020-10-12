@@ -1,4 +1,4 @@
-**DISCLAIMER: This project is for educational purposes only, no materials/files are intended for any commercial use. In this document all sources will be credited.**
+**DISCLAIMER: This project is for educational purposes only, no materials/files are intended for any commercial use. In this document all sources will be credited.**
 
 - [Milestone 4 - The Woodworks](#milestone-4---the-woodworks)
     + [The journey of developing The Woodworks (this can be seen by working through the commit history).](#the-journey-of-developing-the-woodworks--this-can-be-seen-by-working-through-the-commit-history-)
@@ -15,9 +15,9 @@
 
 
 
-# Milestone 4 - The Woodworks
+# Milestone 4 - The Woodworks
 
-The milestone 4 project will be a website to showcase content I learned to develop in the last part of the Code Institute's Full stack developer bootcamp. It will be a Django based full stack website. Since I am on an extremely tight schedule I will build a minimal viable product first and expand on that if time permits. 
+The milestone 4 project will be a website to showcase content I learned to develop in the last part of the Code Institute's Full stack developer bootcamp. It will be a Django based full stack website. Since I am on an extremely tight schedule I will build a minimal viable product first and expand on that if time permits. 
 
 I chose to build a small e-commerce site for a dear friend of mine who will be starting a training in furniture woodworking and might be selling his creations in the future. The site I will build is a showcase to see how it might work.
 
@@ -117,11 +117,11 @@ Colors from left to right:
 
 - Landing/store page
     * The landing is page will also be the store page. The site will contain the products that can be purchased. Here they can be added to the shopping cart. A maximum of 5 items each to keep users from ordering 100's of items. It will contain a button to go to the reviews section of the relevant product. Details of the product will be:
-    * picture of product
-        * name
-        * description (should be hidden on mobile, with an option to show it (button))
-        * price
-        * construction time
+	    * picture of product
+	    * name
+	    * description (should be hidden on mobile, with an option to show it (button))
+	    * price
+	    * construction time
 
 - Shopping cart page
     * This page will give an overview of the contents of the shopping cart, including total price and construtcion time. Here the user can adjust the cart's content and ultimately got to checkout. To go to checkout the user needs to be logged in.
@@ -148,14 +148,87 @@ I have not made mockups of all pages as some were developed 'on the fly' during 
 ### Existing Features
 
 #### Consistent features across all pages
+
 - A navbar to navigate around the site. The links for Store, Vote and Cart are always present. When logged in there is a logout option. If not, links for register and login are present. The cart has a small addition showing the number of products in the cart if any are present. On the left the name of the shop is present and acts as a 'home' link. On small viewports all links will be replaced with a hamburger menu which will slide open to reveal all links.
 - A simple footer to indicate the bottom of the page, containing a copyright mark.
 
 #### Store / Landing page
-- As per design these are one and the same.
+As per design these are one and the same. On the page all available products are shown through the use of cards. Each cards contains a picture, name of the item and a description in the cards main field. Here also is a button to go to the reviews for this project. On small viewports no description is shown, a button can be pressed to toggle between the description being shown or hidden. This has been implemented to not clutter the viewport too much. The footer of the card shows the following:
 
+* The price 
+* Construction time, 
+* Number of items to be added to the cart
+* Button to add to the cart 
+* Maximum of items that can be added to the cart.
+
+#### Cart
+The cart page shows the content of the shopping cart. This has again been done with product cards. The content is condensed somewhat to give a clear overview. In the card the user can adjust the amount on order. At the bottom a summary containing total price and total construction time is shown. If the user agrees the checkout button can be pressed to go to the checkout screen. When the user is not logged on but trying to press the button, it will be disabled and a message show to ask the user to log on.
+
+#### Checkout
+The checkout page cannot be entered with being logged (typing the url will fail too). It shows an even more condensed view of the shopping cart's contents with the total price. The user is asked to fill out a form with the user's personal details and payment information. If all is valid, the user can use the button 'complete order' for secure checkout through Stripe's functionality.
+
+#### Checkout succes page
+A simple page showing a confirmation message that the order has been received. If time permits, this will be extended.
+
+#### Login/registration/logout pages
+These are directly implemented from allauth. All needed functionality is present and has been tested. Some styling and aligning has been done.
+
+#### Review page
+The review page will show the product with the reviews for that product (if any). If the user is logged on, the form to submit one's own review is displayed, else it is hidden. The reviews written are shown with the reviewer, review text and the date/time the review was submitted.
+
+#### Poll/vote page
+Here the user is able to see the results up to that moment of the votes on the question what should be developed next. A number of options is present with the number of votes for each option. A progressbar is present per product to show the relative number of votes. The bars fill up to the percentage of total votes the current option has. These are updates at every pageload. The total number of votes is shown too. The user can only vote once (tied to the user's emailadress). The buttons to vote are hidden when the user is not logged on, or has already voted. An appriorate message is shown to alert the user of this.
 
 ### Defensive design
+Certain measure were taken to prevent users from making mistakes or malicious actions.
+
+- General form validation
+- Stripe has its own security system in place. I took nearly every part of code concerning stripe from the Boutique Ado project of the Code Institute.
+- Several get_object_or_404 instances in the views.
+- The checkout button is disabled when the user is not logged on.
+- The checkout view has @login_required tagged.(so no access when typing the url of the checkout page in the addressbar)
+- On the vote and review page, the relevant content to submit a vote or review are hidden when the user is not logged on.  
+- As a measure to prevent users from putting to0 many products in the cart, the user is only able to have a maximum of 5 items of each product in the cart. This has been implemented in several ways:
+	+ Form validation only allows 1 to 5 in the quantity field on the store page and 0 to 5 on the cart page.
+	+ In the addtocart view, no values except 1 to 5 are allowed (in case someone disables the form validation)
+	+ In the adjustcart view, no vlaues except 0 to 5 are allowed. (in case someone disables the form validation)
+
+### Features left to implement
+Now that I know what Django is capable of there is so much more I would like to add. However most are beyond the scope and time allotted for this project.
+
+Things that I would have liked very much to add but were left because of time constraints.
+
+- Sorting of products lists etc.
+- Smooth transistions hidden/show text on storepage.
+- Change page titles (H1 needs work)
+- Enlarged pictures when clicked on
+- Webhook handling (the webhooks are received (tests from stripe succesful))
+- Order overview on checkout succes page.
+- Better footer placement, have it stable at the bottom of the viewport if small enough
+- Order confirmation through email
+- Superuser login to be able to add/remove products etc
+- Persisting cart tied to account
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
