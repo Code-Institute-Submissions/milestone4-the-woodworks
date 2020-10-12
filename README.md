@@ -213,6 +213,17 @@ Things that I would have liked very much to add but were left because of time co
 
 ## Testing
 
+All the following pages were checked with W3C Markup Validation Service and no errors were found:
+
+Store: https://codewouter-the-woodworks.herokuapp.com/
+Signup: https://codewouter-the-woodworks.herokuapp.com/accounts/signup/
+Login: https://codewouter-the-woodworks.herokuapp.com/accounts/login/
+Vote: https://codewouter-the-woodworks.herokuapp.com/poll/
+Cart (empty & filled): https://codewouter-the-woodworks.herokuapp.com/cart/
+Reviews: https://codewouter-the-woodworks.herokuapp.com/reviews/7/
+
+
+
 
 
 
