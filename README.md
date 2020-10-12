@@ -187,7 +187,8 @@ Certain measure were taken to prevent users from making mistakes or malicious ac
 - Several get_object_or_404 instances in the views.
 - The checkout button is disabled when the user is not logged on.
 - The checkout view has @login_required tagged.(so no access when typing the url of the checkout page in the addressbar)
-- On the vote and review page, the relevant content to submit a vote or review are hidden when the user is not logged on.  
+- On the vote and review page, the relevant content to submit a vote or review are hidden when the user is not logged on.
+- If a user enters empty values in the quantity boxes, the cart view in both functions will catch this and just return to the page.
 - As a measure to prevent users from putting to0 many products in the cart, the user is only able to have a maximum of 5 items of each product in the cart. This has been implemented in several ways:
 	+ Form validation only allows 1 to 5 in the quantity field on the store page and 0 to 5 on the cart page.
 	+ In the addtocart view, no values except 1 to 5 are allowed (in case someone disables the form validation)
