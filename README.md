@@ -201,14 +201,18 @@ Things that I would have liked very much to add but were left because of time co
 
 - Sorting of products lists etc.
 - Smooth transistions hidden/show text on storepage.
-- Change page titles (H1 needs work)
+- Change page titles (Headers needs work)
 - Enlarged pictures when clicked on
 - Webhook handling (the webhooks are received (tests from stripe succesful))
 - Order overview on checkout succes page.
 - Better footer placement, have it stable at the bottom of the viewport if small enough
 - Order confirmation through email
+- Seperate landing page.
 - Superuser login to be able to add/remove products etc
 - Persisting cart tied to account
+
+## Testing
+
 
 
 
