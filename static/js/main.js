@@ -1,5 +1,5 @@
 function toggleElementView(obj) {
-    var el = document.getElementById(obj);
+    let el = document.getElementById(obj);
     const style = getComputedStyle(el);
     if (style.display === "none") {
         el.style.display = "block";
@@ -9,6 +9,6 @@ function toggleElementView(obj) {
 }
 
 function setProgressBar(productVotes, totalVotes, productID) {
-    progressPercentage = Math.round(productVotes/totalVotes * 100);
+    var progressPercentage = Math.round(productVotes/totalVotes * 100);
     document.getElementById(productID).style.width = progressPercentage+"%";
 }

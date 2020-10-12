@@ -3,12 +3,21 @@ from django.shortcuts import render, redirect
 
 # Create your views here.
 def view_cart(request):
-
+    """
+    Simply renders the cart.html page, content is coming from
+    the context processor.
+    """
     return render(request, 'cart/cart.html')
 
 
 def add_to_cart(request, item_id):
-    """ Add a quantity of the product to the cart """
+    """
+    Add a quantity of the product to the cart. Checks are made
+    if the quantity field number exists and not 0, is not
+    negative or greater than 5.
+    After adjusting the quantity in the context processor it returns
+    to the page
+    """
     redirect_url = request.POST.get('redirect_url')
 
     if request.POST.get('quantity'):
@@ -32,7 +41,12 @@ def add_to_cart(request, item_id):
 
 
 def adjust_cart(request, item_id):
-    """ Add a quantity of the product to the cart """
+    """
+    Adjust quantity of the product to the cart. Checks are made
+    if the quantity field number exists, is not negative or greater than 5
+    After adjusting the quantity in the context processor it returns
+    to the page
+    """
     redirect_url = request.POST.get('redirect_url')
 
     if request.POST.get('quantity'):
@@ -50,4 +64,3 @@ def adjust_cart(request, item_id):
             return redirect(redirect_url)
     else:
         return redirect(redirect_url)
-

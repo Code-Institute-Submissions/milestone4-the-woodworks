@@ -16,7 +16,6 @@
     min-height: 88vh;
 }
 
-
 /* ---------- navbar styling, overriding bootstrap ---------- */ 
 .navbar {
   overflow: hidden;
@@ -26,7 +25,6 @@
   width: 100%; /* Full width */
   z-index: +5;
 }
-
 
 .nav-main-style {
     background-image: linear-gradient(to right, #283618, #606C38);
@@ -83,6 +81,7 @@ hr {
 .login-request-link {
     color: #DDA15E;
 }
+
 /* ---------- store app ---------- */
 .card-text {
     display: none;

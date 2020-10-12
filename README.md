@@ -210,9 +210,13 @@ Things that I would have liked very much to add but were left because of time co
 - Seperate landing page.
 - Superuser login to be able to add/remove products etc
 - Persisting cart tied to account
+- Timestap on orders
+- Make address 2 field on checkout not required
 
 ## Testing
 
+### Validators
+#### HTML
 All the following pages were checked with W3C Markup Validation Service and no errors were found:
 
 Store: https://codewouter-the-woodworks.herokuapp.com/
@@ -221,6 +225,17 @@ Login: https://codewouter-the-woodworks.herokuapp.com/accounts/login/
 Vote: https://codewouter-the-woodworks.herokuapp.com/poll/
 Cart (empty & filled): https://codewouter-the-woodworks.herokuapp.com/cart/
 Reviews: https://codewouter-the-woodworks.herokuapp.com/reviews/7/
+Checkout: https://codewouter-the-woodworks.herokuapp.com/checkout/
+Checkout Success: https://codewouter-the-woodworks.herokuapp.com/checkout/checkout_success/
+
+#### CSS
+The main.css file was checked using W3C Markup Validation Service.
+The CSS file validates as CSS level 3 + SVG. No errors found.
+
+#### Javascript
+
+
+
 
 
 
