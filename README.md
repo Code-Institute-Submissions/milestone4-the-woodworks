@@ -233,6 +233,12 @@ The main.css file was checked using W3C Markup Validation Service.
 The CSS file validates as CSS level 3 + SVG. No errors found.
 
 #### Javascript
+#### Python
+All python files in all apps were checked using PEP8Online and no errors were found.
+
+
+
+
 
 
 
