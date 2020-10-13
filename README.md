@@ -309,7 +309,7 @@ Things that I would have liked very much to add but were left because of time co
 - [AWS S3 Bucket](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingBucket.html) - allows seamless uploading of user files to cloud storage using application credentials
 - [stripe](https://stripe.com/) - payment platform to validate and accept credit card payments securely
 
-#### Validators
+### Validators
 
 - [W3C Markup Validation Service](https://validator.w3.org/) - used to validate HTML and CSS code;
 - [JSHint](https://jshint.com/) - used to validate JavaScript code;
