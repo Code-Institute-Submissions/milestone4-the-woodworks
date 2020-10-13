@@ -236,7 +236,7 @@ The CSS file validates as CSS level 3 + SVG. No errors found.
 
 
 #### Python
-All python files in all apps were checked using PEP8Online and no errors were found.
+All python files in all apps were checked using PEP8Online and no errors were found except settings.py. The errors on the AWS DOMAIN and 
 
 
 

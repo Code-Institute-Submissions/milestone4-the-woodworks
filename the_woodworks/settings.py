@@ -133,6 +133,8 @@ else:
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 
+# These lines will throw a 'too long' error in the validator
+# but can't be helped (after conferring with tutor support)
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -175,11 +177,13 @@ STATICFILES_DIRS = (
 )
 
 
-# # Bucket config
+# Bucket config
 AWS_STORAGE_BUCKET_NAME = 'ms4-the-woodworks'
 AWS_S3_REGION_NAME = 'eu-west-2'
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+# This line will throw a 'too long' error in the validator
+# but can't be helped (after conferring with tutor support)
 AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com'
 
 # Static and media files
