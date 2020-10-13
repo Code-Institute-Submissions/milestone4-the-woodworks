@@ -1,7 +1,12 @@
+# Milestone 4 - The Woodworks
+
 **DISCLAIMER: This project is for educational purposes only, no materials/files are intended for any commercial use. In this document all sources will be credited.**
 
+![AmiResponsive](https://ms4-the-woodworks.s3.eu-west-2.amazonaws.com/media/images/AmI.JPG)
+
+
 - [Milestone 4 - The Woodworks](#milestone-4---the-woodworks)
-    + [The journey of developing The Woodworks (this can be seen by working through the commit history).](#the-journey-of-developing-the-woodworks--this-can-be-seen-by-working-through-the-commit-history-)
+    + [The journey of developing The Woodworks](#the-journey-of-developing-the-woodworks)
   * [UX](#ux)
     + [User stories](#user-stories)
     + [Model design](#model-design)
@@ -9,8 +14,52 @@
       - [Reviews](#reviews)
       - [Poll](#poll)
     + [Color scheme](#color-scheme)
+    + [Naming scheme](#naming-scheme)
+    + [Planned pages](#planned-pages)
+  * [Features](#features)
+    + [Existing Features](#existing-features)
+      - [Consistent features across all pages](#consistent-features-across-all-pages)
+      - [Store / Landing page](#store---landing-page)
+      - [Cart](#cart)
+      - [Checkout](#checkout)
+      - [Checkout succes page](#checkout-succes-page)
+      - [Login/registration/logout pages](#login-registration-logout-pages)
+      - [Review page](#review-page)
+      - [Poll/vote page](#poll-vote-page)
+    + [Defensive design](#defensive-design)
+    + [Features left to implement](#features-left-to-implement)
+  * [Technologies used](#technologies-used)
+    + [Framework & Extensions](#framework---extensions)
+    + [Tools](#tools)
+    + [APIs](#apis)
+      - [Validators](#validators)
+  * [Testing](#testing)
+    + [Validators](#validators-1)
+        * [HTML](#html)
+        * [CSS](#css)
+        * [Javascript](#javascript)
+        * [Python](#python)
+    + [User tests](#user-tests)
+      - [Display, layout & responsiveness](#display--layout---responsiveness)
+      - [Navigation header](#navigation-header)
+      - [Authenication proces.](#authenication-proces)
+      - [Store page](#store-page)
+      - [Reviews page](#reviews-page)
+      - [Vote page](#vote-page)
+      - [Cart page](#cart-page)
+      - [Checkout page](#checkout-page)
+      - [Checkout Succes page.](#checkout-succes-page)
+      - [General](#general)
+    + [Bugs left to be solved.](#bugs-left-to-be-solved)
+    + [Interesting bugs/issues solved](#interesting-bugs-issues-solved)
+    + [External testers](#external-testers)
+  * [Deployement](#deployement)
+    + [Local deployement](#local-deployement)
+  * [Credits](#credits)
+  * [Acknowledgements](#acknowledgements)
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
+
 
 
 
@@ -525,13 +574,14 @@ Unfortunately as I uploaded a lot of static media content to my AWS bucket and m
 
 ## Acknowledgements
 
-- I would to thank the following people:
-	+ First and foremost, my wife and children. For putting up with me, having to miss me and support me in all the past months!
-	+ Special shoutout to Igor Basuga (Igor_CI) who as a tutor, lead and just as a good friend, helped me with many a problem/bug, but also as a friend was very supportive.
-	+ Shoutout to Chris ckz8780 for an awesome example project but especially, coming to the rescue like a Django Superman when things got real tough.
-	+ The slack community as a whole, with extra consideration for JoWings, Vlad Oprea, Mr Bim, Anthony, Matthew, Jim Lynx, Aukje bylisa and Clint.
-	+ My dear friend Jaws (Jos), tester extraordinaire.
-	+ CI Tutor support
-	+ CI in general for putting up with my longwinded studentship. Especially thankful for the extensions I got to finish this up!
+I would to thank the following people:
+
++ First and foremost, my wife and children. For putting up with me, having to miss me and support me in all the past months!
++ Special shoutout to Igor Basuga (Igor_CI) who as a tutor, lead and just as a good friend, helped me with many a problem/bug, but also as a friend was very supportive.
++ Shoutout to Chris ckz8780 for an awesome example project but especially, coming to the rescue like a Django Superman when things got real tough.
++ The slack community as a whole, with extra consideration for JoWings, Vlad Oprea, Mr Bim, Anthony, Matthew, Jim Lynx, Aukje bylisa and Clint.
++ My dear friend Jaws (Jos), tester extraordinaire.
++ CI Tutor support
++ CI in general for putting up with my longwinded studentship. Especially thankful for the extensions I got to finish this up!
  
 
