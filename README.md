@@ -60,11 +60,9 @@
 
 <small><i><a href='http://ecotrust-canada.github.io/markdown-toc/'>Table of contents generated with markdown-toc</a></i></small>
 
-
-
-
-
 # Milestone 4 - The Woodworks
+
+**The deployed site can be found [here](https://codewouter-the-woodworks.herokuapp.com/)**
 
 **NOTE: To use the creditcard payment functionality one should use 4242 4242 4242 4242 as a creditcard number.**
 
