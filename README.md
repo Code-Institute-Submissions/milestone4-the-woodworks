@@ -395,10 +395,110 @@ No disfunctionality was found in final testing.
 - My dear friend Jos (Jaws) who is part professinal tester who went through the site.
 - On Slack I owe a debt of gratitude to Vlad opera, JoWings_Alumna, Aukje - byllsa, JimLynx and Igor for peer reviewing the project.
 
-####
+## Deployement
+**Partly taken/inspired by https://github.com/bravoalpha79/MothRadar**
 
+The following steps were taken to deploy the project to Heroku.
 
+1. Login at Heroku
 
+2. On Heroku create a new app **codewouter-the-woodworks**
+
+3. In the Heroku App Dashboard, under the Resources tab, add Heroku Postgres (select the "Hobby Dev - Free" option).
+
+4. In Gitpod use ```pip freeze > requirements``` to be sure eveything is added. At the time of deployement this was the contents of the requirements.txt file:
+
+   ```
+	asgiref==3.2.10
+	boto3==1.14.60
+	botocore==1.17.60
+	dj-database-url==0.5.0
+	Django==3.1
+	django-allauth==0.42.0
+	django-forms-bootstrap==3.1.0
+	django-storages==1.10
+	docutils==0.15.2
+	gunicorn==20.0.4
+	jmespath==0.10.0
+	oauthlib==3.1.0
+	Pillow==7.2.0
+	psycopg2==2.8.6
+	psycopg2-binary==2.8.6
+	python3-openid==3.2.0
+	pytz==2020.1
+	requests-oauthlib==1.3.0
+	s3transfer==0.3.3
+	sqlparse==0.3.1
+	stripe==2.53.0
+   ```
+
+5. The database had already been migrated at an earlier point from sqlite3 to Postgres. The proces used then was:
+
+	1. From the CLI of gitpod install dj\_database\_url and psycopg2-binary (and use pip3  freeze > requirements.txt)
+	2. In settings.py import dj\_database\_url
+	3. In settings.py code this is in to have the postgres database selected when a DATABASE_URL is present in the environment variables. Which in Heroku is present and set to the correct url.
+	
+	```
+	if 'DATABASE_URL' in os.environ:
+    	DATABASES = {
+        	'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    	}
+	else:
+    	DATABASES = {
+        	'default': {
+           		'ENGINE': 'django.db.backends.sqlite3',
+           	 	'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+       		 }
+    	}
+	```	
+	3. Re-run the database migrations with `python3 manage.py migrate` which will build the Postgres database.
+	4. And create a new superuser with `python3 manage.py createsuperuser
+	5. Commit the changes. 
+
+6. The DEBUG value is set dependent on the environment variable DEVELOPMENT. Heroku does not have this key, so it automatically reverts to false.
+	```
+	if 'DEVELOPMENT' in os.environ:
+	    DEBUG = True
+	else:
+	    DEBUG = False
+	```
+7. In heroku add a DISABLE_COLLECTSTATIC Config Var and set its value to 1. So heroku wil not start collecting static files.
+8. Static files (css/javascript/media) are all uploaded to a AWS Bucket and pulled from there. This was implemented very early in development as to be sure everything functioned correctly. To make heroku use these files and locations, some environmental variables needed to be said (see the overview of all heroku environmental variables)
+9. Install gunicorn with `pip3 install gunicorn`and freeze it in the requirements file with ```pip freeze > requirements```
+10. Create a Procfile in the main dir and enter within that `web: gunicorn the_woodworks.wsgi:application`
+11. Within settings.py add the hostname to allowed host: `ALLOWED_HOSTS = ['codewouter-the-woodworks.herokuapp.com', 'localhost']`
+12. Commit the changes and git push all to github.
+13. Now everything was pushed to heroku using
+
+	`
+	heroku git:remote -a codewouter-the-woodwork
+	`
+	
+	`
+	git push heroku master
+	`
+
+15. Finally all environment variables from gitpod needed to be copied to heroku, resulting in this list:
+
+    |           Key             |   
+    |:-------------------------:|
+    | STRIPE\_PUBLIC\_KEY       | 
+    | STRIPE\_SECRET\_KEY       | 
+    | STRIPE\_WH\_SECRET  	    |
+    | SECRET\_KEY               |
+    | AWS\_ACCESS\_KEY_ID       |
+    | AWS\_SECRET\_ACCESS\_KEY  |
+    | EMAIL\_HOST\_USER         |
+    | EMAIL\_HOST\_PASS         |
+    | DATABASE\_URL             |
+    | DISABLE\_COLLECTSTATIC    |
+    | USE_AWS					|
+
+16. On the top right choose the 'more' button and choose 'restart all dynos'
+17. Open app to see the deployed project.
+
+##### Local deployement
+Unfortunately as I uploaded a lot of static content to my AWS bucket and migrated very early to a Postgres database, it is not possible to have someone else create a local deployement without sending over static files.
 
 
 
