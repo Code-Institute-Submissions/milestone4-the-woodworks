@@ -48,6 +48,7 @@ The following features need to be present at a minimum:
 ### User stories
 
 As a user that is not logged in:
+
 - I want to view products on offer
 - I want to look at reviews
 - I want to look at the poll for the next product to be developed.
@@ -57,6 +58,7 @@ As a user that is not logged in:
 - I want to be able to see the contents of my shopping cart and adjust it if necessary.
 
 As a user that is logged in:
+
 - I want to add a review to a product
 - I want to add a product to my shopping cart
 - I want to see the contents of my shopping cart
@@ -67,6 +69,7 @@ As a user that is logged in:
 
 #### Product
 The products model will be several types of furniture, in the database design the model will have the following fields:
+
 - product_id (primary key)
 - name (string)
 - description (string)
@@ -76,20 +79,23 @@ The products model will be several types of furniture, in the database design th
 
 #### Reviews
 The review model will add reviews to products and use product_id as a foreign key.
+
 - review_id (primary key)
 - product_id (foreign key)
 - review_text (string)
 
 #### Poll
 The poll model will contain a product type and votes cast per type. Time permitting it will be linked to a user account so a user can only vote once.
+
 - product_type_id
 - product_type (string)
 - votes (integer)
 
 A seperate model for the poll app was implemented during development will be present to keep track of who has voted. These are identified by their emaildres.
+
 - Voters/voted (contains only emailadresses)
 
-The database model can be viewed [here](https://github.com/codewouter/milestone4-the-woodworks/blob/master/mockups/ms4-db-model.pdf):
+The database model can be viewed [here](https://github.com/codewouter/milestone4-the-woodworks/blob/master/mockups/ms4-db-model.pdf)
 
 ### Color scheme
 
@@ -98,6 +104,7 @@ Using https://coolors.co/ I picked a scheme that had a lot of green in it and so
 ![Colorscheme image](https://ms4-the-woodworks.s3.eu-west-2.amazonaws.com/media/images/Colorpalette500x.png)
 
 Colors from left to right:
+
 - 606C38
 - 283618
 - FEFAE0
@@ -135,6 +142,7 @@ Colors from left to right:
     * A simple page to show that the order has followed through. If time permits it will show the order, payment and send an email for confirmation.
 
 **Other pages**
+
 - Review page
     * A page that will show reviews entered by users for a product. If logged in, the user can add reviews.
 
@@ -152,6 +160,7 @@ I have not made mockups of all pages as some were developed 'on the fly' during 
 #### Consistent features across all pages
 
 - A navbar to navigate around the site. The links for Store, Vote and Cart are always present. When logged in there is a logout option. If not, links for register and login are present. The cart has a small addition showing the number of products in the cart if any are present. On the left the name of the shop is present and acts as a 'home' link. On small viewports all links will be replaced with a hamburger menu which will slide open to reveal all links.
+- 
 - A simple footer to indicate the bottom of the page, containing a copyright mark.
 
 #### Store / Landing page
@@ -226,7 +235,7 @@ Things that I would have liked very much to add but were left because of time co
 - [django-forms-bootstrap](https://pypi.org/project/django-forms-bootstrap/) - allows further customization of bootstrap forms within Django framework
 - [stripe](https://pypi.org/project/stripe/) - A python library to talk to Stripe's API
 - [boto3](https://pypi.org/project/boto3/)-  allows Python to talk to AWS SDK so you can store data in S3 buckets 
-- [django-storages] a collection of custom storage backends with django to work with boto3 and AWS S3.
+- [django-storages](https://django-storages.readthedocs.io/en/latest/) a collection of custom storage backends with django to work with boto3 and AWS S3.
 - [gunicorn](https://pypi.org/project/gunicorn/) - Python WSGI HTTP Server for UNIX so you can host your application
 - [pillow](https://pillow.readthedocs.io/en/stable/) -Python Imaging Library to help store imagery into a database
 - [psycopg2](https://www.psycopg.org/docs/) - PostgreSQL database adapter for the Python
@@ -236,6 +245,7 @@ Things that I would have liked very much to add but were left because of time co
 
 
 ### Tools
+
 - [github](https://github.com/) - used for version control of project files and branching out to try different things without adversely affecting a functional set of code
 - [balsamiq](https://balsamiq.com/) - used to create professional looking wire frames.
 - [mardown table of contents generator](http://ecotrust-canada.github.io/markdown-toc/) - Used to generate the README table of contents.
@@ -310,6 +320,7 @@ No disfunctionality was found in final testing.
 - On small viewports the links are hidden and put in a hamburger menu. All links are present in the menu, the same as described earlier. 
 
 #### Authenication proces.
+
 - The registration functionality was tested using multiple accounts
 - The login functionality was tested using multiple accounts
 - The logout functionality was tested using multiple accounts
@@ -396,7 +407,6 @@ No disfunctionality was found in final testing.
 - On Slack I owe a debt of gratitude to Vlad opera, JoWings_Alumna, Aukje - byllsa, JimLynx and Igor for peer reviewing the project.
 
 ## Deployement
-**Partly taken/inspired by https://github.com/bravoalpha79/MothRadar**
 
 The following steps were taken to deploy the project to Heroku.
 
@@ -497,43 +507,31 @@ The following steps were taken to deploy the project to Heroku.
 16. On the top right choose the 'more' button and choose 'restart all dynos'
 17. Open app to see the deployed project.
 
-##### Local deployement
-Unfortunately as I uploaded a lot of static content to my AWS bucket and migrated very early to a Postgres database, it is not possible to have someone else create a local deployement without sending over static files.
+### Local deployement
+Unfortunately as I uploaded a lot of static media content to my AWS bucket and migrated very early to a Postgres database, it is not possible to have someone else create a local deployement without sending over static files.
+
+## Credits
+
+- Major inspiration and quite a bit of code was taken from Code Institute's Boutique Ado project by Chris. Where code was used fully or used partly has been written down in comments in the code.
+- Inspiration for the design was taken from Rob Simon's Blindside Brewery project for the design aspect to find a simple yet fullfilling design in regards to making a minimal viable product. The repository is [here](https://github.com/RobSimons1/ms4-ecommerce).
+- All product pictures and descriptions were taken from https://www.grainwoodfurniture.com/, except for:
+	+ chair: https://wihardja.com.sg/
+	+ sidetable: https://www.homesdirect365.co.uk/
+- Favicon item is from https://www.freefavicon.com/freefavicons/objects/iconinfo/saw-152-27070.html
+- The treebark footer image from https://www.freepik.com/free-photo/seamless-tree-bark-texture-design_6446472.htm
+- The main body background texter from https://pngtree.com/freebackground/cracked-wooden-texture-background-wood-plane_1162081.html 
+- Lastly, a lot of help to solve several bugs came from the Slack commuity and stack overflow
 
 
+## Acknowledgements
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-On stripe:
-
-Got stripe running, payments are created and accepted, webhooks are being handled. Creating the whole customer data passing and so on, simply takes too much time and will be left out. Test webhooks send from Stripe are being handled and returned with a proper response.
+- I would to thank the following people:
+	+ First and foremost, my wife and children. For putting up with me, having to miss me and support me in all the past months!
+	+ Special shoutout to Igor Basuga (Igor_CI) who as a tutor, lead and just as a good friend, helped me with many a problem/bug, but also as a friend was very supportive.
+	+ Shoutout to Chris ckz8780 for an awesome example project but especially, coming to the rescue like a Django Superman when things got real tough.
+	+ The slack community as a whole, with extra consideration for JoWings, Vlad Oprea, Mr Bim, Anthony, Matthew, Jim Lynx, Aukje bylisa and Clint.
+	+ My dear friend Jaws (Jos), tester extraordinaire.
+	+ CI Tutor support
+	+ CI in general for putting up with my longwinded studentship. Especially thankful for the extensions I got to finish this up!
+ 
 
