@@ -11,6 +11,7 @@
         <div class="row mt-4">
             <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
                 <div class="card">
+                    <!-- Main body of the card with image, name, reviews button (hidden) toggle button -->
                     <div class="row">
                         <div class="col-8 offset-2 col-sm-3 offset-sm-0 mt-sm-2">
                             <img src="{{ MEDIA_URL }}{{ product.image }}" alt="{{ product.name }}" class="img-fluid mt-3 w-100">
@@ -20,10 +21,12 @@
                                 <h4 class="card-title mt-2 mt-sm-3">{{product.name}}</h4>
                                 <p class="card-text" id="{{product.id}}">{{product.description}}</p>
                                 <a href="{% url 'view_reviews' product.id %}" class="btn btn-primary mb-2">Reviews</a>
+                                <!-- this button toggles visibility of the description on small viewports, hidden by defaul on such devices -->
                                 <button class="btn btn-primary mb-2 toggle-info-button" onclick="toggleElementView({{product.id}})">Toggle info</button>
                             </div>
                         </div>
                     </div>
+                    <!-- card footer with price, construction time, quanity input box + add to cart button -->
                     <div class="card-footer w-100">
                         <div class="row align-items-center">
                             <div class="col-6 col-sm-3 col-md-3">

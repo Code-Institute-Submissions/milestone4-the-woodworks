@@ -4,6 +4,7 @@
 <section class="container-fluid section-container">
     <div class="row">
         <div class="col-sm-10 offset-sm-1 col-lg-8 offset-lg-2">
+            <!-- Shows image of products reviews are for with name of the product -->
             <h2> Reviews for </h2>
             <hr>
             <div class="row mt-4">
@@ -15,6 +16,7 @@
                 </div>
             </div>
             <hr>
+            <!-- Shows the input form to add a review if logged on, else message is displayed to ask for login. -->
             {% if user.is_authenticated %}
                 <form method="POST" action="{% url 'add_review' product.id %}">
                     {% csrf_token %}
@@ -40,7 +42,7 @@
                 <h5 class="mt-3">Please <a href="{% url 'account_login' %}" class="login-request-link">login</a> to add a review</h5>
             {% endif%}
         </div>
-        <!-- list of reviews for speicified product -->
+        <!-- list of reviews for specified product -->
         <div class="col-sm-10 offset-sm-1 col-lg-8 offset-lg-2">
             {% if review_list %}
                 <div class="row justify-content-around">

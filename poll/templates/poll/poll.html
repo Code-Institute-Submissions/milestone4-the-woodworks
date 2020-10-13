@@ -10,6 +10,7 @@
         <div class="col-sm-10 offset-sm-1 col-lg-8 offset-lg-2">
             <h3> Please give your input </h3>
             <p> What would you like to be developed next by The Woodworks? </p>
+            <!-- check if user has already votes or is not logged in, sets appropriate message -->
             {% if user.is_authenticated %}
                 {% if voted %}
                     <h5 class="mt-2 font-weight-bold">You have already voted </h5>
@@ -23,18 +24,20 @@
             {% for poll_product in poll_product_list %}
                 <form action="{% url 'add_vote' poll_product.id %}" method="POST">
                     {% csrf_token %}
+                    <!-- Shows choice and number votes for that choice -->
                     <div class="row mt-3">
                         <div class="col-10">
                             <h5>{{ poll_product.product_type }} : {{ poll_product.votes }}</h5>
                         </div>
                     </div>
                         <!-- in the codeblock below I call the setprogressBar function to calculate the relevant percentage of votes
-                        for this poll_product.id and change the width to the percentage -->
+                        for this poll_product.id and change the width to the percentage. With this value the prograssbar is rendered. -->
                     <div class="row no-gutters">
                         <div class="col-10  mt-2 progress">
                             <div id="{{poll_product.id}}" class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" ></div>
                             <script>setProgressBar('{{poll_product.votes}}', '{{total_votes}}', '{{poll_product.id}}');</script>
                         </div>
+                        <!-- vote buttons hidden when not logged on or already voted. -->
                        <div class="col-1 ml-2">
                             {% if user.is_authenticated and not voted %}
                                 <input type="submit" class="btn-sm btn-dark" value="Vote">
@@ -44,6 +47,7 @@
                     <input type="hidden" name="redirect_url" value="{{ request.path }}">
                 </form>
             {% endfor %}
+            <!-- shows total votes -->
             <div class="row justify-content-center">
                 <div class="col-8 offset-2">
                     <p class="h5 mt-5"> Total votes: {{ total_votes }} </p>

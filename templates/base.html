@@ -38,9 +38,9 @@
         <link rel="shortcut icon" href="https://ms4-the-woodworks.s3.eu-west-2.amazonaws.com/media/images/sawfavicon.png" type="image/png" />
     </head>
     <body class="main-body">
+        <!-- navbar showing name of company and all navigation links -->
         <nav class="navbar navbar-light navbar-expand-md nav-main-style">
             <a href="{% url 'index' %}" class="navbar-brand">
-                <!-- <img src="" alt=""> -->
                 <h3 class="ms4-white">The Woodworks</h3>
             </a>
             <button class="navbar-toggler custom-toggler" data-toggle="collapse" data-target="#mainNavbar">
@@ -49,6 +49,7 @@
             <div class="collapse navbar-collapse" id="mainNavbar">
                 <ul class="navbar-nav ml-auto ">
                     <li><a href="{% url 'index' %}" class="nav-item nav-link">Store</a></li>
+                    <!-- if user is logged in, logout link is shown, else login and register links are shown. -->
                     {% if request.user.is_authenticated %}
                         <li><a href="{% url 'account_logout' %}" class="nav-item nav-link">Logout</a></li>
                     {% else %}                    
@@ -56,6 +57,7 @@
                         <li><a href="{% url 'account_login' %}" class="nav-item nav-link">Login</a></li>
                     {% endif %}
                     <li><a href="{% url 'view_poll' %}" class="nav-item nav-link">Vote</a></li>
+                    <!-- link to cart with badge to show number of items in cart if > 0 -->
                     <li>
                         <a href="{% url 'view_cart' %}" class="nav-item nav-link">Cart
                             {% if product_count > 0 %}

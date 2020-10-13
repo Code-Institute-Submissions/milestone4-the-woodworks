@@ -6,7 +6,7 @@
     <div class = "row">
         <div class="col-sm-10 offset-sm-1 col-lg-8 offset-lg-2">
             <h2> Checkout page </h2>
-            <!-- condensed cart overview -->
+            <!-- condensed cart overview with image, name, price and quantity -->
             <div class="row">
                 <div class="col-12 border border-dark mt-1">
                     {% for item in cart_items %}
@@ -29,6 +29,7 @@
                             </div>
                         </div>
                     {% endfor %}
+                    <!-- Total price display at the end of the list -->
                     <div class="row">
                         <div class="col-12 d-block">
                             <hr>
@@ -53,7 +54,7 @@
                 <div class="mb-3" id="card-element"></div>
                 <!-- Used to display form errors -->
                 <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
-
+                <!-- complete order button -->
                 <button id="submit-button" class="btn btn-primary">
                     <span class="font-weight-bold">Complete Order</span>
                     <span class="icon">
