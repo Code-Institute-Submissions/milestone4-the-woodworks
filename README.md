@@ -215,29 +215,71 @@ Things that I would have liked very much to add but were left because of time co
 - Timestap on orders
 - Make address 2 field on checkout not required
 
+## Technologies used
+**Partly taken from https://raw.githubusercontent.com/maliahavlicek/ms4_challenger/master/README.md**
+
+
+### Framework & Extensions
+
+- [dj-database-url](https://pypi.org/project/dj-database-url/) - allows use of environment variable for database connections
+- [bootstrap 4](https://getbootstrap.com/docs/4.0/getting-started/introduction/) - a mobile friendly CSS framework based on a responsive grid system.
+- [django-forms-bootstrap](https://pypi.org/project/django-forms-bootstrap/) - allows further customization of bootstrap forms within Django framework
+- [stripe](https://pypi.org/project/stripe/) - A python library to talk to Stripe's API
+- [boto3](https://pypi.org/project/boto3/)-  allows Python to talk to AWS SDK so you can store data in S3 buckets 
+- [django-storages] a collection of custom storage backends with django to work with boto3 and AWS S3.
+- [gunicorn](https://pypi.org/project/gunicorn/) - Python WSGI HTTP Server for UNIX so you can host your application
+- [pillow](https://pillow.readthedocs.io/en/stable/) -Python Imaging Library to help store imagery into a database
+- [psycopg2](https://www.psycopg.org/docs/) - PostgreSQL database adapter for the Python
+- [pytz](https://pypi.org/project/pytz/) - world timezone calculations
+- [allauth](https://django-allauth.readthedocs.io/en/latest/index.html) - Takes care of nearly all user authorization functionality.
+- [Font Awesome](https://fontawesome.com/) - used for various icons.
+
+
+### Tools
+- [github](https://github.com/) - used for version control of project files and branching out to try different things without adversely affecting a functional set of code
+- [balsamiq](https://balsamiq.com/) - used to create professional looking wire frames.
+- [mardown table of contents generator](http://ecotrust-canada.github.io/markdown-toc/) - Used to generate the README table of contents.
+- [heroku](https://www.heroku.com/) - runs the ms4  application in the cloud
+- [pip](https://pip.pypa.io/en/stable/installing/) - used to install python extensions for this project
+- [AmIresponsive](http://ami.responsivedesign.is/#) - Used to create Am I responsive picture.
+- [Color Picker](https://coolors.co/) - Used to determine general colors used in the project.
+- [Gitpod](https://www.gitpod.io/) - As main IDE
+
+### APIs
+
+- [AWS S3 Bucket](https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingBucket.html) - allows seamless uploading of user files to cloud storage using application credentials
+- [stripe](https://stripe.com/) - payment platform to validate and accept credit card payments securely
+
+#### Validators
+
+- [W3C Markup Validation Service](https://validator.w3.org/) - used to validate HTML and CSS code;
+- [JSHint](https://jshint.com/) - used to validate JavaScript code;
+- [PEP8 online](http://pep8online.com/) - validate Python code;
+
 ## Testing
 
 ### Validators
-#### HTML
+
+##### HTML
 All pages were checked with W3C Markup Validation Service and no errors were found:
 
-Store: https://codewouter-the-woodworks.herokuapp.com/
-Signup: https://codewouter-the-woodworks.herokuapp.com/accounts/signup/
-Login: https://codewouter-the-woodworks.herokuapp.com/accounts/login/
-Vote: https://codewouter-the-woodworks.herokuapp.com/poll/
-Cart (empty & filled): https://codewouter-the-woodworks.herokuapp.com/cart/
-Reviews: https://codewouter-the-woodworks.herokuapp.com/reviews/7/
-Checkout: https://codewouter-the-woodworks.herokuapp.com/checkout/
-Checkout Success: https://codewouter-the-woodworks.herokuapp.com/checkout/checkout_success/
+- Store: https://codewouter-the-woodworks.herokuapp.com/
+- Signup: https://codewouter-the-woodworks.herokuapp.com/accounts/signup/
+- Login: https://codewouter-the-woodworks.herokuapp.com/accounts/login/
+- Vote: https://codewouter-the-woodworks.herokuapp.com/poll/
+- Cart (empty & filled): https://codewouter-the-woodworks.herokuapp.com/cart/
+- Reviews: https://codewouter-the-woodworks.herokuapp.com/reviews/7/
+- Checkout: https://codewouter-the-woodworks.herokuapp.com/checkout/
+- Checkout Success: https://codewouter-the-woodworks.herokuapp.com/checkout/checkout_success/
 
-#### CSS
-The main.css file was checked using W3C Markup Validation Service.
-The CSS file validates as CSS level 3 + SVG. No errors found.
+##### CSS
+- The main.css file was checked using W3C Markup Validation Service.
+- The CSS file validates as CSS level 3 + SVG. No errors found.
 
-#### Javascript
+##### Javascript
 All javascript files were validated using jshint.com. No critical errors found. Let and const variables are flagged as ES6 and some functions are called unused variables because they are called from outside the script file. After conferring with Tutor support they can be ignored.
 
-#### Python
+##### Python
 All python files in all apps were checked using PEP8Online and no errors were found except settings.py. Some lines are too long according to the validator, those have been commented on in the code. After conferring with Tutor support they can be ignored.
 
 ### User tests
