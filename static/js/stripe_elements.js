@@ -1,5 +1,5 @@
 
-/* All stripe js code taken from CI's boutique's project. */
+/* All stripe js code taken directly from CI's boutique's project. */
 
 /*
     Core logic/payment flow for this comes from here:
