@@ -32,7 +32,7 @@
     + [Framework & Extensions](#framework---extensions)
     + [Tools](#tools)
     + [APIs](#apis)
-      - [Validators](#validators)
+    + [Validators](#validators)
   * [Testing](#testing)
     + [Validators](#validators-1)
         * [HTML](#html)
