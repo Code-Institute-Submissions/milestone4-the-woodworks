@@ -217,7 +217,7 @@ Things that I would have liked very much to add but were left because of time co
 
 ### Validators
 #### HTML
-All the following pages were checked with W3C Markup Validation Service and no errors were found:
+All pages were checked with W3C Markup Validation Service and no errors were found:
 
 Store: https://codewouter-the-woodworks.herokuapp.com/
 Signup: https://codewouter-the-woodworks.herokuapp.com/accounts/signup/
@@ -233,6 +233,8 @@ The main.css file was checked using W3C Markup Validation Service.
 The CSS file validates as CSS level 3 + SVG. No errors found.
 
 #### Javascript
+
+
 #### Python
 All python files in all apps were checked using PEP8Online and no errors were found.
 
