@@ -26,7 +26,12 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent
 SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+if 'DEVELOPMENT' in os.environ:
+    print('debug true')
+    DEBUG = True
+else:
+    print('debug false')
+    DEBUG = False
 
 ALLOWED_HOSTS = ['codewouter-the-woodworks.herokuapp.com', 'localhost']
 
