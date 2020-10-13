@@ -17,6 +17,8 @@
 
 # Milestone 4 - The Woodworks
 
+**NOTE: To use the creditcard payment functionality one should use 4242 4242 4242 4242 as a creditcard number.**
+
 The milestone 4 project will be a website to showcase content I learned to develop in the last part of the Code Institute's Full stack developer bootcamp. It will be a Django based full stack website. Since I am on an extremely tight schedule I will build a minimal viable product first and expand on that if time permits. 
 
 I chose to build a small e-commerce site for a dear friend of mine who will be starting a training in furniture woodworking and might be selling his creations in the future. The site I will build is a showcase to see how it might work.
@@ -233,11 +235,125 @@ The main.css file was checked using W3C Markup Validation Service.
 The CSS file validates as CSS level 3 + SVG. No errors found.
 
 #### Javascript
-
+All javascript files were validated using jshint.com. No critical errors found. Let and const variables are flagged as ES6 and some functions are called unused variables because they are called from outside the script file. After conferring with Tutor support they can be ignored.
 
 #### Python
-All python files in all apps were checked using PEP8Online and no errors were found except settings.py. The errors on the AWS DOMAIN and 
+All python files in all apps were checked using PEP8Online and no errors were found except settings.py. Some lines are too long according to the validator, those have been commented on in the code. After conferring with Tutor support they can be ignored.
 
+### User tests
+
+#### Display, layout & responsiveness
+All testing was done continuously during development using Chrome devtools settings set to:
+
+* Laptop (1366 x 768)
+* Ipad (stock)
+* Galaxy S5 (stok)
+
+And using these real devices:
+
+* Fullscreen monitor (1920x1080)
+* Samsung A7
+* Samsung A5
+
+No disfunctionality was found in final testing.
+
+#### Navigation header
+
+- The name of the company 'The Woodworks' can be clicked as a 'home' link.
+- All links respond correctly.
+- When the user is logged off, the logout link is not shown, login and register are shown.
+- When the user is logged on, the login and register links are hidden and only the logout link is shown. 
+- The links Store, Vote and Cart are always shown.
+- When at least one item is in the cart, a small yellow dot shows the total number of items in the cart.
+- On small viewports the links are hidden and put in a hamburger menu. All links are present in the menu, the same as described earlier. 
+
+#### Authenication proces.
+- The registration functionality was tested using multiple accounts
+- The login functionality was tested using multiple accounts
+- The logout functionality was tested using multiple accounts
+- The password reset functionality was tested using multiple accounts
+
+#### Store page
+
+- On small viewports the description is hidden on pageload and the 'toggle info' button shows/hides the text.
+- The reviews button responds well and loads the relevant page
+- Quantity field can be filled manually or using arrows.
+- The validation on the quantity field keeps the user from entering anything not in range 1-5. 
+- Even when the validation is removed (through devtools for instance), illegal values are not accepted.
+
+#### Reviews page
+
+- Reviews are shown correctly.
+- When not logged on the add review form is hidden and the text 'please login to add a review' is displayed with 'login' a link to the login page, which responds well.
+- When logged on the review form is shown and responding correctly.
+- If no reviews are present a message telling the user this appears.
+
+#### Vote page
+
+- When not logged on the vote buttons are hidden and the text 'please login to vote' is displayed with 'login' a link to the login page, which responds well.
+- When the user is logged but has already votes, the vote buttons are hidden and the text 'You have already voted is shown'.
+- When the user is logged on and has not voted, the vote buttons are shown and respond well. The site updates correctly with the vote added.
+- The amount of votes per item are displayed correctly, the progress bars fill up correctly to the relevant percentage.
+
+#### Cart page
+
+- The cart page shows a message that the cart is empty with a button to return to the store, when no items are in the shopping cart.
+- All items in the cart are displayed correctly.
+- The total price and construction time is calculated and shown correctly.
+- The checkout button is disabled when the user is nog logged on.
+- When not logged on, clicking the checkout button will display a message asking the user to login. The login word in the text is clickable and takes the user to the login page.
+- The quantity of each item shown can be adjusted. Illegal values cannot be entered through form validation (anything outside 0-5).
+- Even when the validation is removed (through devtools for instance), illegal values are not accepted.  
+- Setting the quantity to 0 and pressing the adjust button will remove the object from the cart.
+
+#### Checkout page
+
+- The contents of the cart is shown correctly.
+- The total price is calculated and displayed correctly.
+- The form validation of the checkout form prevents empty fields.
+- The card form is working as intended by stripe (this has been fully imported from stripe)
+- When not logged on, the site will move the user to the login page. This might be tested by diretly typing in the url in the address bar. (https://codewouter-the-woodworks.herokuapp.com/checkout/)
+- A payment intent is created in Stripe, correctly using the total price as amount.
+- If all fields are valid, pressing the 'complete order' button will succesfully:
+	+ Proces the order so it's placed in the database and viewable through the admin part of the site.
+	+ Proces the payment intent through Stripe's payment test functionality, the card is charged and the amount deducted. The webhook is received and processed and if succesful (which it always is) the checkout succes view and thus the page is loaded. See below for an example.
+	+ Load the checkout succes page.
+
+
+![payment-example](https://ms4-the-woodworks.s3.eu-west-2.amazonaws.com/media/images/payment-example-stripe.JPG)
+
+
+#### Checkout Succes page.
+
+- A message displays that the order has been processed succesfully and was paid for.
+- The shopping cart is emptied.
+
+#### General
+
+- Using the back button on the browser will not lead to errors.
+
+### Bugs left to be solved.
+
+- The javascript function to render the progressbars on the poll page needs to be called when the page is rendered. Using ``` <body onload="myFunction()"> ``` would work but I do not know a way to pass the three arguments/variables needed at each iteration of the forloop creating the bars. In the end I chose to call the function through a small inline script. Which is of course not the best way to do this.
+
+- In the javascript event listener ```document.getElementById('checkout-anchor').addEventListener("click", disableButton)``` the id is not always present (as intended). This will throw a console error when the cart page is loaded when the user is logged on. I cannot find a way (in time) to test the presence of the id before activating the eventlistener. In all if statements I found on the net, some form of getElementbyID is used. In the end I just catch the error and return nothing.
+
+### Interesting bugs/issues solved
+
+- When trying to disable the checkout button when the user was not logged on. I struggled to get this working. I couldn't understand how to call the function on pageload. In the end I made it too complex. Simply giving it an id based on whether the user is logged in, the disableButton function has a target id or not.
+
+- When trying to pass the status whether someone had voted directly to the template it didn't work. After asking around it seemed I could only pass arguments to a template through the function that renders it (view\_poll). So I completely rebuild the view_poll function to check the status and pass it.
+
+- A bug that took a -lot- of time was the following error
+	- ```NoReverseMatch at /cart/, Reverse for 'adjust_cart' with arguments'(",)' not found ```. 
+-  After being at it for the better part of a day, including a four hour session with tutor support (no critism there, love them), Chris himself stepped through slack and solved it in 5 minutes. The variable I was trying to pass should've been item.id instead of item.item_id. incredible how well Chris can read the code and spot mistakes. From the whole endeavour I really got to understand how the views, urls and templates work together and how arguments are passed.
+
+### External testers
+
+- My dear friend Jos (Jaws) who is part professinal tester who went through the site.
+- On Slack I owe a debt of gratitude to Vlad opera, JoWings_Alumna, Aukje - byllsa, JimLynx and Igor for peer reviewing the project.
+
+####
 
 
 
