@@ -13,6 +13,12 @@ import stripe
 
 @login_required
 def checkout(request):
+    """
+    Largely based of Chris' wonderful Boutique Ado project.
+    It will fetch all data from the checkout form and save it
+    into the database and create a stripe payment intent.
+
+    """
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
     if request.method == 'POST':
@@ -73,6 +79,10 @@ def checkout(request):
 
 
 def checkout_success(request):
+    """
+    Will check if the cart's content is still present and delete it,
+    then render the checkout succes page.
+    """
     if 'cart' in request.session:
         del request.session['cart']
 

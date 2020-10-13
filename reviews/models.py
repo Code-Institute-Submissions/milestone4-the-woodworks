@@ -4,6 +4,10 @@ from django.utils import timezone
 
 
 class Review(models.Model,):
+    """
+    Thes model will store a review text, reviewer and
+    date of submission to a product.
+    """
     product = models.ForeignKey(
         Product, on_delete=models.SET_NULL, null=True, blank=True)
     review_text = models.CharField(max_length=800, blank=False, default='')

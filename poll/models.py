@@ -1,4 +1,10 @@
 from django.db import models
+"""
+Sets up 2 models:
+The Poll model to register votes for each voteable product.
+The voted model to keep a list of emailadresses of users
+that have voted.
+"""
 
 
 class Poll(models.Model,):

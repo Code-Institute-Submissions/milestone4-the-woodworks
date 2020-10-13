@@ -4,8 +4,7 @@ from store.models import Product
 """
 Build the model based on CI video Course:
 Project - Boutique Ado  The Checkout App  Views & Templates Part 1
-and
-Rob Simon's MS4 project.
+and Rob Simon's MS4 project.
 """
 
 

@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-""" All clasess taken from CI's Boutique project """
+""" All clasess fully taken from CI's Boutique project """
 
 
 class StripeWH_Handler:

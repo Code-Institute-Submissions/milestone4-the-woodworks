@@ -4,6 +4,10 @@ from .models import Product
 
 # Create your views here.
 def store(request):
+    """
+    This view will pass all product objects in the database
+    to render the store page.
+    """
 
     products = Product.objects.all()
 

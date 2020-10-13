@@ -28,6 +28,8 @@ def add_review(request, product_id):
     """
     When the add review button on the page is pressed the function is called
     and given the product_id as an argument.
+    The validity of the form is checked and the review is added
+    to the database.
     """
 
     if request.method == "POST":

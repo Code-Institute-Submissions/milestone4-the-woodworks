@@ -5,8 +5,13 @@ from .models import Poll, Voted
 # Create your views here.
 def view_poll(request):
     """
-    simple function to pass the products with their respective
-    nr of votes.
+    Function to pass the products with their respective
+    nr of votes. It will check the model Voted to see
+    if the user has already voted. Setting the voted
+    var accordingly.
+    It will calculate the total nr of votes.
+    It will pass the list of voteable products,
+    total nr of votes and the voted variable.
     """
     if request.user.is_authenticated:
         all_emails = Voted.objects.values_list('user_email', flat=True)
@@ -17,6 +22,7 @@ def view_poll(request):
             voted = False
     else:
         voted = False
+
     total_votes = 0
     for product_type in Poll.objects.all():
         total_votes += product_type.votes
