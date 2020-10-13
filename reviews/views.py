@@ -24,9 +24,7 @@ def view_reviews(request, product_id):
 
 def add_review(request, product_id):
     product = get_object_or_404(Product, pk=product_id)
-    selected_product = get_object_or_404(Product, pk=product_id)
     review_list = Review.objects.all().filter(product=product)
-    print(selected_product.id)
     """
     When the add review button on the page is pressed the function is called
     and given the product_id as an argument.

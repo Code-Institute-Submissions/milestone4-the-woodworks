@@ -21,7 +21,6 @@ def view_poll(request):
     for product_type in Poll.objects.all():
         total_votes += product_type.votes
 
-    print(total_votes)
     poll_product_list = Poll.objects.order_by('id')
     template = 'poll/poll.html'
     context = {
